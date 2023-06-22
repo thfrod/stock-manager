@@ -1,0 +1,32 @@
+{
+  "generator-ngx-rocket": {
+    "version": "11.0.0",
+    "props": {
+      "location": "path",
+      "strict": true,
+      "skipInstall": false,
+      "skipQuickstart": false,
+      "initGit": true,
+      "usePrefix": true,
+      "appName": "stock manager",
+      "target": ["web"],
+      "ui": "material",
+      "layout": "simple",
+      "features": ["auth", "lazy", "cypress"],
+      "languages": ["en-US", "pt-BR"],
+      "tools": ["prettier", "hads", "compodoc"],
+      "utility": ["lodash", "moment"],
+      "deploy": "none",
+      "projectName": "stock-manager",
+      "packageManager": "npm",
+      "mobile": [],
+      "desktop": [],
+      "pwa": false,
+      "auth": true,
+      "lazy": true,
+      "e2e": false,
+      "cypress": true,
+      "angulartics": false
+    }
+  }
+}
