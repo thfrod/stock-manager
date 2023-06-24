@@ -1,0 +1,19 @@
+@import "./theme-variables";
+
+mat-card {
+  padding: 1rem 0 !important;
+  mat-card-header {
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+    padding: 0 1rem 0.5rem;
+    [mat-card-avatar] {
+      img {
+        max-width: 40px;
+        max-height: 40px;
+      }
+    }
+  }
+  mat-card-content {
+    padding: 0.5rem 1rem 0;
+  }
+}
