@@ -2,6 +2,7 @@
  * Entry point of global application style.
  * Component-specific style should not go here and be included directly as part of the components.
  */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 // Theme variables, must be included before the libraries to allow overriding defaults
 @import "theme/theme-variables";
@@ -13,11 +14,14 @@
 // The mixins below must be included once so we separated them from the variables
 @import "~@angular/material/theming";
 
+$custom-typography: mat-typography-config(
+  $font-family: "'Inter', sans-serif",
+);
+
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat-core();
-
+@include mat-core($custom-typography);
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
