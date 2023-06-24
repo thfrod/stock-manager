@@ -7,12 +7,7 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  quote: string | undefined;
-  isLoading = false;
-
   constructor() {}
 
-  ngOnInit() {
-    this.isLoading = true;
-  }
+  ngOnInit() {}
 }

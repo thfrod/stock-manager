@@ -1,0 +1,36 @@
+{
+  "printWidth": 120,
+  "tabWidth": 2,
+  "useTabs": true,
+  "semi": true,
+  "singleQuote": true,
+  "quoteProps": "as-needed",
+  "trailingComma": "none",
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "jsxSingleQuote": false,
+  "bracketSameLine": false,
+  "jsxBracketSameLine": false,
+  "vueIndentScriptAndStyle": false,
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": "*.component.html",
+      "options": {
+        "parser": "angular"
+      }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    },
+    {
+      "files": "*.component.ts",
+      "options": {
+        "parser": "typescript"
+      }
+    }
+  ]
+}
