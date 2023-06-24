@@ -5,22 +5,22 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { SharedModule } from '@shared';
 import { MaterialModule } from '@app/material.module';
-import { HomeComponent } from './home.component';
+import { DashboardComponent } from './dashboard.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('DashboardComponent', () => {
+  let component: DashboardComponent;
+  let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [BrowserAnimationsModule, FlexLayoutModule, MaterialModule, SharedModule, HttpClientTestingModule],
-      declarations: [HomeComponent],
+      declarations: [DashboardComponent],
       providers: [],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

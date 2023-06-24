@@ -4,11 +4,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from '@app/material.module';
-import { LoaderComponent } from './loader/loader.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { LogoComponent } from './components/logo/logo.component';
+import { LogoTextComponent } from './components/logo-text/logo-text.component';
 
 @NgModule({
   imports: [FlexLayoutModule, MaterialModule, TranslateModule, CommonModule],
-  declarations: [LoaderComponent],
-  exports: [LoaderComponent],
+  declarations: [LoaderComponent, LogoComponent, LogoTextComponent],
+  exports: [LoaderComponent, LogoComponent, LogoTextComponent],
 })
 export class SharedModule {}
