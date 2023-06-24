@@ -1,4 +1,4 @@
-<mat-toolbar class="mat-elevation-z6 navbar" color="primary" fxLayout="column">
+<mat-toolbar class="mat-elevation-z6 navbar" color="primary" fxLayout="column" fxLayoutAlign="space-between center">
   <div fxLayoutAlign="start center" fxLayoutGap="10px" fxLayout="column">
     <app-logo [size]="30" [color]="'#FFF'"></app-logo>
     <app-logo-text [size]="100" [color]="'#FFF'" fxHide.lt-sm></app-logo-text>
@@ -15,11 +15,12 @@
       <span translate>Settings</span>
     </button>
   </div>
-  <span fxFlex></span>
-  <button mat-icon-button [matMenuTriggerFor]="userMenu">
-    <mat-icon>person</mat-icon>
-  </button>
-  <app-language-selector [icon]="true"></app-language-selector>
+  <div fxFlex fxLayoutGap="10px" fxLayoutAlign="start end">
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>person</mat-icon>
+    </button>
+    <app-language-selector [icon]="true"></app-language-selector>
+  </div>
   <mat-menu #userMenu="matMenu">
     <mat-list>
       <mat-list-item>
