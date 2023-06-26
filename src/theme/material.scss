@@ -1,11 +1,10 @@
 @import "./theme-variables";
 
 mat-card {
-  padding: 1rem 0 !important;
   mat-card-header {
     align-items: center;
     border-bottom: 1px solid #cccccc;
-    padding: 0 1rem 0.5rem;
+    padding: 0 1rem;
     [mat-card-avatar] {
       img {
         max-width: 40px;

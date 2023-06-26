@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  width: calc(100% - 165px);
+  justify-content: flex-end;
+  gap: 0.5rem;
+  position: absolute;
+  right: 0;
+  padding: 1rem;
+
+  .filter {
+    margin-right: 1rem;
+  }
+}

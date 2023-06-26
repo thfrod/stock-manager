@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { finalize } from 'rxjs/operators';
+import { DashboardDataModel } from '@app/@shared/models/utils.model';
+import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,9 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor() {}
+  public dashboardData: DashboardDataModel = this.dashboardService.getDashboardData();
+
+  constructor(private readonly dashboardService: DashboardService) {}
 
   ngOnInit() {}
 }

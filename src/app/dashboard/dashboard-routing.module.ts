@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 
 import { Shell } from '@app/shell/shell.service';
@@ -7,8 +7,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   Shell.childRoutes([
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: DashboardComponent, data: { title: marker('Home') } },
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    { path: 'dashboard', component: DashboardComponent, data: { title: marker('Dashboard') } },
   ]),
 ];
 
@@ -17,4 +17,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [],
 })
-export class HomeRoutingModule {}
+export class DashboardRoutingModule {}

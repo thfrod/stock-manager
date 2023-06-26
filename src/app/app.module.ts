@@ -1,19 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { TranslateModule } from '@ngx-translate/core';
+import ptBr from '@angular/common/locales/pt';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouteReuseStrategy, RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from './material.module';
 
-import { RouteReusableStrategy, ApiPrefixInterceptor, ErrorHandlerInterceptor, SharedModule } from '@shared';
 import { AuthModule } from '@app/auth';
+import { ApiPrefixInterceptor, ErrorHandlerInterceptor, RouteReusableStrategy, SharedModule } from '@shared';
 
-import { ShellModule } from './shell/shell.module';
-import { AppComponent } from './app.component';
+import { registerLocaleData } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ShellModule } from './shell/shell.module';
+
+registerLocaleData(ptBr);
 
 @NgModule({
   imports: [
@@ -46,6 +50,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
       provide: RouteReuseStrategy,
       useClass: RouteReusableStrategy,
     },
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
   ],
   bootstrap: [AppComponent],
 })

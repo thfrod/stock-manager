@@ -2,19 +2,31 @@
   .content {
     padding: 1rem;
 
-    mat-card {
-      max-width: 250px;
-      mat-card-header {
-        border: none;
-        .mat-card-title {
-          margin-bottom: 0;
-          font-size: 2rem;
-        }
-        .mat-card-avatar {
-          button[mat-mini-fab] {
-            box-shadow: none;
-            cursor: default;
-          }
+    .statistics {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 250px);
+      justify-content: space-between;
+
+      gap: 0.5rem;
+    }
+  }
+
+  mat-card {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    padding: 1rem 0;
+
+    mat-card-header {
+      border: none;
+      .mat-card-title {
+        margin-bottom: 0;
+        font-size: 1.5rem;
+      }
+      .mat-card-avatar {
+        button[mat-mini-fab] {
+          box-shadow: none;
+          cursor: default;
         }
       }
     }

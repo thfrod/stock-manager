@@ -1,15 +1,14 @@
 import { ProductModel } from './products.model';
 
 export interface DashboardDataModel {
-  totalSales: number;
-  totalProducts: number;
+  numberOfSales: number;
+  totalSales: number; // total sales not counting costs
   totalProfit: number;
   totalCost: number;
-  numberOfSales: number;
+  numberOfProducts: number;
   mostSaledProduct: ProductModel;
   lessSaledProduct: ProductModel;
   mostProfitableProduct: ProductModel;
   lessProfitableProduct: ProductModel;
-  TotalofProductsOnStock: ProductModel[];
-  productsOffStock: ProductModel[];
+  listOfProducts: ProductModel[];
 }
