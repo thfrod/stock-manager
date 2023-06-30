@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalService } from '@app/@shared/services/modal.service';
 import { AuthenticationService, CredentialsService } from '@app/auth';
 
 @Component({
@@ -13,7 +14,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
-    private credentialsService: CredentialsService
+    private credentialsService: CredentialsService,
+    private readonly modalService: ModalService
   ) {}
 
   ngOnInit(): void {
@@ -29,10 +31,14 @@ export class HeaderComponent implements OnInit {
     this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
-  public checkFilter() {
+  private checkFilter() {
     const currentUrl = this.router.url;
     if (currentUrl.includes('dashboard')) {
       this.showFilter = true;
     }
+  }
+
+  public openSideFilter() {
+    this.modalService.openSideFilter();
   }
 }

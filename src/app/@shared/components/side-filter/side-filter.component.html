@@ -1,0 +1,49 @@
+<form #f="ngForm">
+  <h2>Filtrar por:</h2>
+  <mat-form-field appearance="outline">
+    <mat-label>Usuário</mat-label>
+    <mat-select name="user" [ngModel]="user">
+      <mat-select-filter
+        [array]="variables"
+        (filteredReturn)="filteredVariables = $event"
+        noResultsMessage="Não foi encontrado usuário com base na sua pesquisa"
+      ></mat-select-filter>
+      <mat-option *ngFor="let variable of filteredVariables">
+        {{ variable }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Produto</mat-label>
+    <mat-select name="product" [ngModel]="product">
+      <mat-select-filter
+        [array]="variables"
+        (filteredReturn)="filteredVariables = $event"
+        noResultsMessage="Não foi encontrado produto com base na sua pesquisa"
+      ></mat-select-filter>
+      <mat-option *ngFor="let variable of filteredVariables">
+        {{ variable }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Data inicial:</mat-label>
+    <input matInput [matDatepicker]="startDatePicker" name="startDate" [ngModel]="startDate" />
+    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #startDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Data final:</mat-label>
+    <input matInput [matDatepicker]="endDatePicker" name="endDate" [ngModel]="endDate" />
+    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #endDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <button mat-stroked-button>Cancelar</button>
+    <button mat-flat-button color="primary">Buscar</button>
+  </div>
+</form>
