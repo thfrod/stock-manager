@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ProductModel } from '@app/@shared/models/products.model';
 import { DashboardDataModel } from '@app/@shared/models/utils.model';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { DashboardDataModel } from '@app/@shared/models/utils.model';
 export class DashboardService {
   constructor() {}
 
-  getDashboardData(): DashboardDataModel {
+  getDashboardData(): Observable<DashboardDataModel> {
     const product: ProductModel = {
       id: 1,
       value: 'Product 1',
@@ -21,9 +22,9 @@ export class DashboardService {
       departmentId: 7,
     };
 
-    return {
+    return of({
       numberOfSales: 77,
-      totalSales: 6160, // total sales not counting costs
+      totalAmount: 6160,
       totalProfit: 3850,
       totalCost: 2310,
       numberOfProducts: 15,
@@ -32,6 +33,6 @@ export class DashboardService {
       mostProfitableProduct: product,
       lessProfitableProduct: product,
       listOfProducts: [product],
-    };
+    });
   }
 }

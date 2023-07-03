@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ProductModel } from '@app/@shared/models/products.model';
-import { UserModel } from '@app/@shared/models/user.model';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { KeyValuePair } from '@app/@shared/models/keyValuePair.model';
 import { Moment } from 'moment';
 
 @Component({
@@ -11,42 +11,16 @@ import { Moment } from 'moment';
 })
 export class SideFilterComponent implements OnInit {
   @ViewChild('f') filterForm: NgForm;
-  public user: UserModel;
-  public product: ProductModel;
+  public userSelected: KeyValuePair;
+  public productSelected: KeyValuePair;
+  public users: KeyValuePair[] = this.data.users;
+  public products: KeyValuePair[] = this.data.products;
+  public usersFiltered = this.users.slice();
+  public productsFiltered = this.products.slice();
   public startDate: Moment;
   public endDate: Moment;
 
-  public variables = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
-  ];
-
-  public filteredVariables = this.variables.slice();
-  constructor() {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { users: KeyValuePair[]; products: KeyValuePair[] }) {}
 
   ngOnInit(): void {}
 }

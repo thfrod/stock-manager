@@ -1,8 +1,17 @@
-.mat-progress-spinner {
-  display: inline-block;
-  vertical-align: middle;
-}
+:host {
+  position: fixed;
+  inset: 0 0 0 165px;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .mat-progress-spinner {
+    display: inline-block;
+    vertical-align: middle;
+  }
 
-.message {
-  margin-left: 0.5em;
+  .message {
+    margin-left: 0.5em;
+  }
 }

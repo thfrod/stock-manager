@@ -41,6 +41,7 @@
     "mat-select-filter": "^2.4.1",
     "material-design-icons-iconfont": "^6.1.0",
     "moment": "^2.29.4",
+    "ng-busy": "^14.0.0",
     "prettier-eslint": "^15.0.1",
     "rxjs": "^7.5.0",
     "tslib": "^2.3.0",

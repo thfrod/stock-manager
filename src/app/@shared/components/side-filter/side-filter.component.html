@@ -2,28 +2,32 @@
   <h2>Filtrar por:</h2>
   <mat-form-field appearance="outline">
     <mat-label>Usuário</mat-label>
-    <mat-select name="user" [ngModel]="user">
+    <mat-select name="user" [ngModel]="userSelected">
       <mat-select-filter
-        [array]="variables"
-        (filteredReturn)="filteredVariables = $event"
+        [placeholder]="'Procure por um usuário...'"
+        [displayMember]="'value'"
+        [array]="users"
+        (filteredReturn)="usersFiltered = $event"
         noResultsMessage="Não foi encontrado usuário com base na sua pesquisa"
       ></mat-select-filter>
-      <mat-option *ngFor="let variable of filteredVariables">
-        {{ variable }}
+      <mat-option *ngFor="let user of usersFiltered" [value]="user.id">
+        {{ user.value }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>Produto</mat-label>
-    <mat-select name="product" [ngModel]="product">
+    <mat-select name="product" [ngModel]="productSelected">
       <mat-select-filter
-        [array]="variables"
-        (filteredReturn)="filteredVariables = $event"
+        [placeholder]="'Procure por um produto...'"
+        [displayMember]="'value'"
+        [array]="products"
+        (filteredReturn)="productsFiltered = $event"
         noResultsMessage="Não foi encontrado produto com base na sua pesquisa"
       ></mat-select-filter>
-      <mat-option *ngFor="let variable of filteredVariables">
-        {{ variable }}
+      <mat-option *ngFor="let product of productsFiltered" [value]="product.id">
+        {{ product.value }}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -43,7 +47,7 @@
   </mat-form-field>
 
   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
-    <button mat-stroked-button>Cancelar</button>
-    <button mat-flat-button color="primary">Buscar</button>
+    <button mat-stroked-button [mat-dialog-close]>Cancelar</button>
+    <button mat-flat-button color="primary" [mat-dialog-close]="f.controls">Buscar</button>
   </div>
 </form>

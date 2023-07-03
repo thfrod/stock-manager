@@ -2,7 +2,7 @@ import { ProductModel } from './products.model';
 
 export interface DashboardDataModel {
   numberOfSales: number;
-  totalSales: number; // total sales not counting costs
+  totalAmount: number; // total sales not counting costs
   totalProfit: number;
   totalCost: number;
   numberOfProducts: number;

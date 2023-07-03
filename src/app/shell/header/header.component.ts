@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalService } from '@app/@shared/services/modal.service';
+import { ProductService } from '@app/@shared/services/product.service';
+import { UserService } from '@app/@shared/services/user.service';
 import { AuthenticationService, CredentialsService } from '@app/auth';
+import { Subscription, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +12,16 @@ import { AuthenticationService, CredentialsService } from '@app/auth';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  public busy$: Subscription[] = [];
   public showFilter = false;
 
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
     private credentialsService: CredentialsService,
-    private readonly modalService: ModalService
+    private readonly modalService: ModalService,
+    private readonly userService: UserService,
+    private readonly productService: ProductService
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +45,20 @@ export class HeaderComponent implements OnInit {
   }
 
   public openSideFilter() {
-    this.modalService.openSideFilter();
+    this.busy$.push(
+      forkJoin([this.userService.getUsersKeyValuePair(), this.productService.getProductsKeyValuePair()]).subscribe({
+        next: (data) => {
+          const dialogRef = this.modalService.openSideFilter({ users: data[0], products: data[1] });
+          dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+              console.log(result);
+            }
+          });
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      })
+    );
   }
 }

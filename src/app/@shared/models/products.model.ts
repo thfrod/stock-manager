@@ -1,6 +1,6 @@
 import { KeyValuePair } from './keyValuePair.model';
 
-export interface ProductModel extends KeyValuePair<number, string> {
+export interface ProductModel extends KeyValuePair {
   acquisitionPrice: number;
   sellingPrice: number;
   quantity: number;

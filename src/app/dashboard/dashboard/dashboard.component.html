@@ -1,5 +1,5 @@
-<div class="content">
-  <div class="statistics">
+<div class="content" [ngBusy]="busy$">
+  <div class="statistics" *ngIf="dashboardData">
     <mat-card>
       <mat-card-header>
         <div mat-card-avatar>
@@ -20,7 +20,7 @@
           </button>
         </div>
         <mat-card-subtitle>Montante</mat-card-subtitle>
-        <mat-card-title>{{ dashboardData.totalSales | currency }}</mat-card-title>
+        <mat-card-title>{{ dashboardData.totalAmount | currency }}</mat-card-title>
       </mat-card-header>
     </mat-card>
 
