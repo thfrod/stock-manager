@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getDashboardData();
+    this.createChart();
   }
 
   ngOnDestroy() {
@@ -34,5 +35,12 @@ export class DashboardComponent implements OnInit {
         },
       })
     );
+  }
+
+  private createChart() {
+    const data = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      series: [this.dashboardData.amountByMonth, this.dashboardData.costByMonth, this.dashboardData.profitByMonth],
+    };
   }
 }

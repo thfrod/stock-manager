@@ -5,7 +5,7 @@
     <mat-select name="user" [ngModel]="userSelected">
       <mat-select-filter
         [placeholder]="'Procure por um usuário...'"
-        [displayMember]="'value'"
+        [displayMember]="'search'"
         [array]="users"
         (filteredReturn)="usersFiltered = $event"
         noResultsMessage="Não foi encontrado usuário com base na sua pesquisa"
@@ -21,7 +21,7 @@
     <mat-select name="product" [ngModel]="productSelected">
       <mat-select-filter
         [placeholder]="'Procure por um produto...'"
-        [displayMember]="'value'"
+        [displayMember]="'search'"
         [array]="products"
         (filteredReturn)="productsFiltered = $event"
         noResultsMessage="Não foi encontrado produto com base na sua pesquisa"

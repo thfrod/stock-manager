@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { KeyValuePair } from '../models/keyValuePair.model';
 import { UserModel } from '../models/user.model';
+import { UtilsService } from './utils.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor() {}
+  constructor(private readonly utilsService: UtilsService) {}
 
   public getUsers(): Observable<UserModel[]> {
     return of([
@@ -64,8 +64,8 @@ export class UserService {
     ]);
   }
 
-  public getUsersKeyValuePair(): Observable<KeyValuePair[]> {
-    return of([
+  public getUsersKeyValuePair(): Observable<UserModel[]> {
+    const users: UserModel[] = [
       {
         id: 1,
         value: 'João Silva',
@@ -106,6 +106,11 @@ export class UserService {
         id: 10,
         value: 'Larissa Silva',
       },
-    ]);
+    ];
+    users.forEach((user) => {
+      const nameWithoutAccents = this.utilsService.removeAccents(user.value);
+      user.search = `${user.value}|${nameWithoutAccents}`;
+    });
+    return of(users);
   }
 }

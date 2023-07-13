@@ -32,7 +32,11 @@ export class DashboardService {
       lessSaledProduct: product,
       mostProfitableProduct: product,
       lessProfitableProduct: product,
-      listOfProducts: [product],
+      numberOfSalesByMonth: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      profitByMonth: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      amountByMonth: [20, 40, 60, 80, 100, 120, 140, 160, 180, 200],
+      costByMonth: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      listOfProducts: [product, product, product, product, product, product, product, product, product, product],
     });
   }
 }

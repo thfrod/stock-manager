@@ -10,5 +10,8 @@ export interface DashboardDataModel {
   lessSaledProduct: ProductModel;
   mostProfitableProduct: ProductModel;
   lessProfitableProduct: ProductModel;
+  profitByMonth: number[];
+  amountByMonth: number[];
+  costByMonth: number[];
   listOfProducts: ProductModel[];
 }

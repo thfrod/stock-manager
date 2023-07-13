@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { KeyValuePair } from '../models/keyValuePair.model';
 import { ProductModel } from '../models/products.model';
+import { UtilsService } from './utils.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  constructor() {}
+  constructor(private readonly utilsService: UtilsService) {}
 
   public getProducts(): Observable<ProductModel[]> {
     return of([
@@ -124,8 +124,8 @@ export class ProductService {
     ]);
   }
 
-  public getProductsKeyValuePair(): Observable<KeyValuePair[]> {
-    return of([
+  public getProductsKeyValuePair(): Observable<ProductModel[]> {
+    const products: ProductModel[] = [
       {
         id: 1,
         value: 'Vestido',
@@ -166,6 +166,11 @@ export class ProductService {
         id: 10,
         value: 'Chinelo',
       },
-    ]);
+    ];
+    products.forEach((product) => {
+      const nameWithoutAccents = this.utilsService.removeAccents(product.value);
+      product.search = `${product.value}|${nameWithoutAccents}`;
+    });
+    return of(products);
   }
 }
