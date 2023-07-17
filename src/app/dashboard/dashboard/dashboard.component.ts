@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DashboardDataModel } from '@app/@shared/models/utils.model';
 import { Subscription } from 'rxjs';
 import { DashboardService } from '../dashboard.service';
+import { ChartDataModel, TopListCardModel } from '../models/dashboard.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,16 +12,25 @@ import { DashboardService } from '../dashboard.service';
 export class DashboardComponent implements OnInit {
   public busy$: Subscription[] = [];
   public dashboardData: DashboardDataModel;
+  public chartData: ChartDataModel = this.emptyChartData;
+  public mostSaledProductData: TopListCardModel;
 
-  constructor(private readonly dashboardService: DashboardService, private http: HttpClient) {}
+  constructor(private readonly dashboardService: DashboardService) {}
 
   ngOnInit() {
     this.getDashboardData();
-    this.createChart();
   }
 
   ngOnDestroy() {
     this.busy$.forEach((subscription) => subscription.unsubscribe());
+  }
+
+  get emptyChartData() {
+    return {
+      profit: [],
+      cost: [],
+      amount: [],
+    };
   }
 
   private getDashboardData() {
@@ -29,6 +38,7 @@ export class DashboardComponent implements OnInit {
       this.dashboardService.getDashboardData().subscribe({
         next: (data) => {
           this.dashboardData = data;
+          this.processData(data);
         },
         error: (err) => {
           console.log(err);
@@ -37,10 +47,15 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  private createChart() {
-    const data = {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      series: [this.dashboardData.amountByMonth, this.dashboardData.costByMonth, this.dashboardData.profitByMonth],
+  private processData(data: DashboardDataModel) {
+    this.chartData.amount = data.amountByMonth;
+    this.chartData.profit = data.profitByMonth;
+    this.chartData.cost = data.costByMonth;
+
+    this.mostSaledProductData = {
+      title: 'Produtos mais vendido',
+      icon: 'grade',
+      products: data.mostSaledProducts,
     };
   }
 }

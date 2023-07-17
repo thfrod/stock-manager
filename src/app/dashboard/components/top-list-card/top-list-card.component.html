@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon>{{ data.icon }}</mat-icon>
+    </div>
+    <mat-card-title>{{ data.title }}</mat-card-title>
+    <mat-card-subtitle *ngIf="data.subtitle">{{ data.subtitle }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let product of data.products; index as i; last as last">
+        <div mat-card-avatar [style.background-image]="'url(' + product.image + ')'"></div>
+        <span mat-line>{{ product.value }}</span>
+        <span mat-line>N° de vendas: {{ product.quantitySold }}</span>
+        <mat-divider *ngIf="!last"></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

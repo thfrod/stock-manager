@@ -6,8 +6,8 @@ export interface DashboardDataModel {
   totalProfit: number;
   totalCost: number;
   numberOfProducts: number;
-  mostSaledProduct: ProductModel;
-  lessSaledProduct: ProductModel;
+  mostSaledProducts: ProductModel[];
+  lessSaledProducts: ProductModel[];
   mostProfitableProduct: ProductModel;
   lessProfitableProduct: ProductModel;
   profitByMonth: number[];

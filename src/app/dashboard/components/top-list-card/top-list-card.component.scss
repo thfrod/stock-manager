@@ -1,0 +1,23 @@
+@import "/src/theme/theme-variables.scss";
+
+:host {
+  mat-card {
+    height: 100%;
+    mat-card-header {
+      [mat-card-avatar] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $primary-blue;
+        mat-icon {
+          color: #fff;
+        }
+      }
+    }
+    mat-card-content {
+      [mat-card-avatar] {
+        background-size: contain;
+      }
+    }
+  }
+}

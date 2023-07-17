@@ -18,7 +18,7 @@ export class DashboardService {
       quantity: 43,
       quantitySold: 18,
       description: '',
-      image: '',
+      image: '/assets/products/1.jpg',
       departmentId: 7,
     };
 
@@ -28,14 +28,14 @@ export class DashboardService {
       totalProfit: 3850,
       totalCost: 2310,
       numberOfProducts: 15,
-      mostSaledProduct: product,
-      lessSaledProduct: product,
+      mostSaledProducts: [product, product, product, product],
+      lessSaledProducts: [product, product, product, product],
       mostProfitableProduct: product,
       lessProfitableProduct: product,
       numberOfSalesByMonth: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-      profitByMonth: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-      amountByMonth: [20, 40, 60, 80, 100, 120, 140, 160, 180, 200],
-      costByMonth: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+      amountByMonth: [40, 60, 80, 100, 120, 140, 160, 180, 210, 240, 250],
+      profitByMonth: [30, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160],
+      costByMonth: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 90],
       listOfProducts: [product, product, product, product, product, product, product, product, product, product],
     });
   }

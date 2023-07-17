@@ -1,20 +1,31 @@
+@import "/src/theme/theme-variables.scss";
 :host {
   .content {
     padding: 1rem;
 
-    .statistics {
+    .cards {
+      mat-card {
+        min-width: 250px;
+        width: 100%;
+      }
       display: grid;
       grid-template-columns: repeat(auto-fill, 250px);
       justify-content: space-between;
 
       gap: 0.5rem;
     }
+
+    .statistics {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 1rem;
+    }
   }
 
-  mat-card {
+  mat-card.card {
     display: flex;
     align-items: center;
-    width: 250px;
     padding: 1rem 0;
 
     mat-card-header {
