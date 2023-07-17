@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { KeyValuePair } from '@app/@shared/models/keyValuePair.model';
 import { Moment } from 'moment';
 
@@ -20,7 +20,16 @@ export class SideFilterComponent implements OnInit {
   public startDate: Moment;
   public endDate: Moment;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { users: KeyValuePair[]; products: KeyValuePair[] }) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: { users: KeyValuePair[]; products: KeyValuePair[] },
+    public dialogRef: MatDialogRef<SideFilterComponent>
+  ) {}
 
   ngOnInit(): void {}
+
+  close() {
+    if (this.filterForm.valid) {
+      this.dialogRef.close(this.filterForm.value);
+    }
+  }
 }

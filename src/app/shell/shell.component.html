@@ -1,6 +1,5 @@
 <div fxFlex>
   <app-sidebar></app-sidebar>
-  <app-header></app-header>
   <mat-sidenav-container fxFill>
     <mat-sidenav #sidenav mode="over" ngClass.gt-sm="has-border">
       <nav>
@@ -18,6 +17,7 @@
       </nav>
     </mat-sidenav>
     <mat-sidenav-content>
+      <app-header></app-header>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

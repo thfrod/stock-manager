@@ -13,8 +13,8 @@ export class DashboardService {
     const product: ProductModel = {
       id: 1,
       value: 'Product 1',
-      acquisitionPrice: 234,
-      sellingPrice: 86,
+      acquisitionPrice: 86,
+      sellingPrice: 234,
       quantity: 43,
       quantitySold: 18,
       description: '',
@@ -36,7 +36,7 @@ export class DashboardService {
       amountByMonth: [40, 60, 80, 100, 120, 140, 160, 180, 210, 240, 250],
       profitByMonth: [30, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160],
       costByMonth: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 90],
-      listOfProducts: [product, product, product, product, product, product, product, product, product, product],
+      products: [product, product, product, product, product, product, product, product, product, product],
     });
   }
 }

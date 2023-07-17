@@ -48,6 +48,6 @@
 
   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
     <button mat-stroked-button [mat-dialog-close]>Cancelar</button>
-    <button mat-flat-button color="primary" [mat-dialog-close]="f.controls">Buscar</button>
+    <button mat-flat-button color="primary" [mat-dialog-close]="f.controls" [disabled]="!f.valid">Buscar</button>
   </div>
 </form>

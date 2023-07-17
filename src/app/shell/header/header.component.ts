@@ -51,13 +51,10 @@ export class HeaderComponent implements OnInit {
           const dialogRef = this.modalService.openSideFilter({ users: data[0], products: data[1] });
           dialogRef.afterClosed().subscribe((result) => {
             if (result) {
-              console.log(result);
             }
           });
         },
-        error: (err) => {
-          console.log(err);
-        },
+        error: () => {},
       })
     );
   }
