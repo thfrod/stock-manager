@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <div mat-card-avatar>
+    <div mat-card-avatar [ngClass]="data.panelClass ?? 'primary'">
       <mat-icon>{{ data.icon }}</mat-icon>
     </div>
     <mat-card-title>{{ data.title }}</mat-card-title>

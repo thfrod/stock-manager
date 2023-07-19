@@ -36,7 +36,7 @@ export class DashboardService {
       amountByMonth: [40, 60, 80, 100, 120, 140, 160, 180, 210, 240, 250],
       profitByMonth: [30, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160],
       costByMonth: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 90],
-      products: [product, product, product, product, product, product, product, product, product, product],
+      products: [product, product, product, product, product],
     });
   }
 }

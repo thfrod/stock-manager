@@ -14,7 +14,9 @@ export class DashboardComponent implements OnInit {
   public dashboardData: DashboardDataModel;
   public chartData: ChartDataModel = this.emptyChartData;
   public mostSaledProductData: TopListCardModel;
-  displayedColumns: string[] = ['image', 'value', 'acquisitionPrice', 'sellingPrice', 'quantity'];
+  public lessSaledProductData: TopListCardModel;
+  public displayedColumns: string[] = ['image', 'value', 'acquisitionPrice', 'sellingPrice', 'quantity', 'action'];
+
   constructor(private readonly dashboardService: DashboardService) {}
 
   ngOnInit() {
@@ -52,8 +54,16 @@ export class DashboardComponent implements OnInit {
 
     this.mostSaledProductData = {
       title: 'Produtos mais vendido',
-      icon: 'grade',
+      icon: 'mood',
       products: data.mostSaledProducts,
+      panelClass: 'success',
+    };
+
+    this.lessSaledProductData = {
+      title: 'Produtos menos vendido',
+      icon: 'mood_bad',
+      products: data.mostSaledProducts,
+      panelClass: 'warn',
     };
   }
 }

@@ -11,4 +11,5 @@ export interface TopListCardModel {
   subtitle?: string;
   icon: string;
   products: ProductModel[];
+  panelClass?: string;
 }
