@@ -1,0 +1,53 @@
+<div class="content">
+  <mat-card>
+    <table mat-table [dataSource]="products">
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef>Foto</th>
+        <td [ngClass]="{ 'no-bt-border': last }" mat-cell *matCellDef="let product; let last = last">
+          <img [src]="product.image" class="rounded" />
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td [ngClass]="{ 'no-bt-border': last }" mat-cell *matCellDef="let product; let last = last">
+          {{ product.value }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acquisitionPrice">
+        <th mat-header-cell *matHeaderCellDef>Preço de compra</th>
+        <td [ngClass]="{ 'no-bt-border': last }" mat-cell *matCellDef="let product; let last = last">
+          {{ product.acquisitionPrice | currency }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sellingPrice">
+        <th mat-header-cell *matHeaderCellDef>Preço de venda</th>
+        <td [ngClass]="{ 'no-bt-border': last }" mat-cell *matCellDef="let product; let last = last">
+          {{ product.sellingPrice | currency }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef>Quantidade</th>
+        <td [ngClass]="{ 'no-bt-border': last }" mat-cell *matCellDef="let product; let last = last">
+          {{ product.quantity }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Ação</th>
+        <td [ngClass]="{ 'no-bt-border': last }" mat-cell *matCellDef="let product; let last = last">
+          <a mat-icon-button routerLink="/products">
+            <mat-icon>edit</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <mat-paginator [length]="50" [pageSize]="5" hidePageSize></mat-paginator>
+    </table>
+  </mat-card>
+</div>
