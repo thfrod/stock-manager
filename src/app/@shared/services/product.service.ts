@@ -19,7 +19,6 @@ export class ProductService {
         quantity: 50,
         quantitySold: 20,
         description: 'Descrição do Vestido',
-        image: 'imagem1.jpg',
         departmentId: 1,
       },
       {
@@ -30,7 +29,6 @@ export class ProductService {
         quantity: 30,
         quantitySold: 10,
         description: 'Descrição da Camiseta',
-        image: 'imagem2.jpg',
         departmentId: 1,
       },
       {
@@ -41,7 +39,6 @@ export class ProductService {
         quantity: 60,
         quantitySold: 25,
         description: 'Descrição da Calça Jeans',
-        image: 'imagem3.jpg',
         departmentId: 1,
       },
       {
@@ -52,7 +49,6 @@ export class ProductService {
         quantity: 40,
         quantitySold: 15,
         description: 'Descrição do Tênis',
-        image: 'imagem4.jpg',
         departmentId: 1,
       },
       {
@@ -63,7 +59,6 @@ export class ProductService {
         quantity: 70,
         quantitySold: 30,
         description: 'Descrição da Saia',
-        image: 'imagem5.jpg',
         departmentId: 1,
       },
       {
@@ -74,7 +69,6 @@ export class ProductService {
         quantity: 55,
         quantitySold: 22,
         description: 'Descrição da Blusa',
-        image: 'imagem6.jpg',
         departmentId: 1,
       },
       {
@@ -85,7 +79,6 @@ export class ProductService {
         quantity: 35,
         quantitySold: 12,
         description: 'Descrição da Jaqueta',
-        image: 'imagem7.jpg',
         departmentId: 1,
       },
       {
@@ -96,7 +89,6 @@ export class ProductService {
         quantity: 65,
         quantitySold: 28,
         description: 'Descrição do Sapato',
-        image: 'imagem8.jpg',
         departmentId: 1,
       },
       {
@@ -107,7 +99,6 @@ export class ProductService {
         quantity: 75,
         quantitySold: 32,
         description: 'Descrição do Shorts',
-        image: 'imagem9.jpg',
         departmentId: 1,
       },
       {
@@ -118,7 +109,6 @@ export class ProductService {
         quantity: 25,
         quantitySold: 8,
         description: 'Descrição do Chinelo',
-        image: 'imagem10.jpg',
         departmentId: 1,
       },
     ]);

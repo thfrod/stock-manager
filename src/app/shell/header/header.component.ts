@@ -40,11 +40,21 @@ export class HeaderComponent implements OnInit {
   private checkFilter() {
     const currentUrl = this.router.url;
     if (currentUrl.includes('dashboard')) {
-      this.showFilter = true;
     }
+    this.showFilter = true;
   }
 
   public openSideFilter() {
+    const filterName = this.router.url.split('/')[1];
+
+    const filters = {
+      products: () => this.openSideProductsFilter(),
+      dashboard: () => this.openSideDashboardFilter(),
+    };
+    filters[filterName]();
+  }
+
+  private openSideDashboardFilter() {
     this.busy$.push(
       forkJoin([this.userService.getUsersKeyValuePair(), this.productService.getProductsKeyValuePair()]).subscribe({
         next: (data) => {
@@ -58,4 +68,6 @@ export class HeaderComponent implements OnInit {
       })
     );
   }
+
+  private openSideProductsFilter() {}
 }

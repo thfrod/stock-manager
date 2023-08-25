@@ -1,5 +1,5 @@
-<ng-container [ngBusy]="busy$">
-  <button mat-icon-button class="filter" *ngIf="showFilter" (click)="openSideFilter()">
+<ng-container>
+  <button [ngBusy]="busy$" mat-icon-button class="filter" *ngIf="showFilter" (click)="openSideFilter()">
     <mat-icon>search</mat-icon>
   </button>
 
