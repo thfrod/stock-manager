@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { SideFilterComponent } from '../components/side-filter/side-filter.component';
+import { SideFilterDashboardComponent } from '../components/side-filter-dashboard/side-filter-dashboard.component';
 import { KeyValuePair } from '../models/keyValuePair.model';
 
 @Injectable({
@@ -9,8 +9,11 @@ import { KeyValuePair } from '../models/keyValuePair.model';
 export class ModalService {
   constructor(private readonly dialog: MatDialog) {}
 
-  public openSideFilter(data: { users: KeyValuePair[]; products: KeyValuePair[] }): MatDialogRef<SideFilterComponent> {
-    return this.dialog.open(SideFilterComponent, {
+  public openSideFilter(data: {
+    users: KeyValuePair[];
+    products: KeyValuePair[];
+  }): MatDialogRef<SideFilterDashboardComponent> {
+    return this.dialog.open(SideFilterDashboardComponent, {
       data,
       width: '400px',
       height: '100%',

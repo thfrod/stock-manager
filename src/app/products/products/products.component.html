@@ -36,6 +36,13 @@
         </td>
       </ng-container>
 
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef>Departamento</th>
+        <td [ngClass]="{ 'no-bt-border': last }" mat-cell *matCellDef="let product; let last = last">
+          {{ product.department.value }}
+        </td>
+      </ng-container>
+
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>Ação</th>
         <td [ngClass]="{ 'no-bt-border': last }" mat-cell *matCellDef="let product; let last = last">
@@ -44,6 +51,10 @@
           </a>
           <a mat-icon-button routerLink="/products" color="warn">
             <mat-icon>delete</mat-icon>
+          </a>
+
+          <a mat-icon-button routerLink="/products/">
+            <mat-icon>visibility</mat-icon>
           </a>
         </td>
       </ng-container>

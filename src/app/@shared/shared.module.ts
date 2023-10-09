@@ -9,7 +9,8 @@ import { BusyConfig, NgBusyModule } from 'ng-busy';
 import { LoaderComponent } from './components/loader/loader.component';
 import { LogoTextComponent } from './components/logo-text/logo-text.component';
 import { LogoComponent } from './components/logo/logo.component';
-import { SideFilterComponent } from './components/side-filter/side-filter.component';
+import { SideFilterDashboardComponent } from './components/side-filter-dashboard/side-filter-dashboard.component';
+import { SideFilterProductsComponent } from './components/side-filter-products/side-filter-products.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,13 @@ import { SideFilterComponent } from './components/side-filter/side-filter.compon
       })
     ),
   ],
-  declarations: [LoaderComponent, LogoComponent, LogoTextComponent, SideFilterComponent],
+  declarations: [
+    LoaderComponent,
+    LogoComponent,
+    LogoTextComponent,
+    SideFilterDashboardComponent,
+    SideFilterProductsComponent,
+  ],
   exports: [LoaderComponent, LogoComponent, LogoTextComponent, NgBusyModule],
 })
 export class SharedModule {}

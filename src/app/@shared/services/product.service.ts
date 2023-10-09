@@ -19,7 +19,10 @@ export class ProductService {
         quantity: 50,
         quantitySold: 20,
         description: 'Descrição do Vestido',
-        departmentId: 1,
+        department: {
+          id: 1,
+          value: 'Masculino',
+        },
       },
       {
         id: 2,
@@ -29,7 +32,10 @@ export class ProductService {
         quantity: 30,
         quantitySold: 10,
         description: 'Descrição da Camiseta',
-        departmentId: 1,
+        department: {
+          id: 1,
+          value: 'Masculino',
+        },
       },
       {
         id: 3,
@@ -39,7 +45,10 @@ export class ProductService {
         quantity: 60,
         quantitySold: 25,
         description: 'Descrição da Calça Jeans',
-        departmentId: 1,
+        department: {
+          id: 1,
+          value: 'Masculino',
+        },
       },
       {
         id: 4,
@@ -49,7 +58,10 @@ export class ProductService {
         quantity: 40,
         quantitySold: 15,
         description: 'Descrição do Tênis',
-        departmentId: 1,
+        department: {
+          id: 1,
+          value: 'Masculino',
+        },
       },
       {
         id: 5,
@@ -59,7 +71,10 @@ export class ProductService {
         quantity: 70,
         quantitySold: 30,
         description: 'Descrição da Saia',
-        departmentId: 1,
+        department: {
+          id: 1,
+          value: 'Masculino',
+        },
       },
       {
         id: 6,
@@ -69,7 +84,10 @@ export class ProductService {
         quantity: 55,
         quantitySold: 22,
         description: 'Descrição da Blusa',
-        departmentId: 1,
+        department: {
+          id: 1,
+          value: 'Masculino',
+        },
       },
       {
         id: 7,
@@ -79,7 +97,10 @@ export class ProductService {
         quantity: 35,
         quantitySold: 12,
         description: 'Descrição da Jaqueta',
-        departmentId: 1,
+        department: {
+          id: 1,
+          value: 'Masculino',
+        },
       },
       {
         id: 8,
@@ -89,7 +110,10 @@ export class ProductService {
         quantity: 65,
         quantitySold: 28,
         description: 'Descrição do Sapato',
-        departmentId: 1,
+        department: {
+          id: 1,
+          value: 'Masculino',
+        },
       },
       {
         id: 9,
@@ -99,7 +123,10 @@ export class ProductService {
         quantity: 75,
         quantitySold: 32,
         description: 'Descrição do Shorts',
-        departmentId: 1,
+        department: {
+          id: 1,
+          value: 'Masculino',
+        },
       },
       {
         id: 10,
@@ -109,7 +136,10 @@ export class ProductService {
         quantity: 25,
         quantitySold: 8,
         description: 'Descrição do Chinelo',
-        departmentId: 1,
+        department: {
+          id: 1,
+          value: 'Masculino',
+        },
       },
     ]);
   }

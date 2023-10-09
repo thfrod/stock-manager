@@ -7,6 +7,8 @@ export interface ProductModel extends KeyValuePair {
   quantitySold?: number;
   description?: string;
   image?: string;
-  departmentId?: number;
+  department?: DepartmentModel;
   search?: string;
 }
+
+export interface DepartmentModel extends KeyValuePair {}

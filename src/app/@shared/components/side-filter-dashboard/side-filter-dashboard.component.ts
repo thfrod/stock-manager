@@ -6,10 +6,10 @@ import { Moment } from 'moment';
 
 @Component({
   selector: 'app-side-filter',
-  templateUrl: './side-filter.component.html',
-  styleUrls: ['./side-filter.component.scss'],
+  templateUrl: './side-filter-dashboard.component.html',
+  styleUrls: ['./side-filter-dashboard.component.scss'],
 })
-export class SideFilterComponent implements OnInit {
+export class SideFilterDashboardComponent implements OnInit {
   @ViewChild('f') filterForm: NgForm;
   public userSelected: KeyValuePair;
   public productSelected: KeyValuePair;
@@ -22,7 +22,7 @@ export class SideFilterComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { users: KeyValuePair[]; products: KeyValuePair[] },
-    public dialogRef: MatDialogRef<SideFilterComponent>
+    public dialogRef: MatDialogRef<SideFilterDashboardComponent>
   ) {}
 
   ngOnInit(): void {}

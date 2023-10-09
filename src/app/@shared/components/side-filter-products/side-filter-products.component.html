@@ -1,0 +1,39 @@
+<form #f="ngForm">
+  <h2>Filtrar por:</h2>
+  <mat-form-field appearance="outline">
+    <mat-label>Produto</mat-label>
+    <mat-select name="product" [ngModel]="productSelected">
+      <mat-select-filter
+        [placeholder]="'Procure por um produto...'"
+        [displayMember]="'search'"
+        [array]="products"
+        (filteredReturn)="productsFiltered = $event"
+        noResultsMessage="Não foi encontrado produto com base na sua pesquisa"
+      ></mat-select-filter>
+      <mat-option *ngFor="let product of productsFiltered" [value]="product.id">
+        {{ product.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Departmento</mat-label>
+    <mat-select name="user" [ngModel]="departmentSelected">
+      <mat-select-filter
+        [placeholder]="'Procure por um departamento...'"
+        [displayMember]="'search'"
+        [array]="departments"
+        (filteredReturn)="departmentsFiltered = $event"
+        noResultsMessage="Não foi encontrado usuário com base na sua pesquisa"
+      ></mat-select-filter>
+      <mat-option *ngFor="let department of departmentsFiltered" [value]="department.id">
+        {{ department.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <button mat-stroked-button [mat-dialog-close]>Cancelar</button>
+    <button mat-flat-button color="primary" [mat-dialog-close]="f.controls" [disabled]="!f.valid">Buscar</button>
+  </div>
+</form>

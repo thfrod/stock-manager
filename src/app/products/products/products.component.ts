@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Route, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CONSTANTS } from '@app/@shared/constants/constants';
 import { ProductModel } from '@app/@shared/models/products.model';
 import { ProductService } from '@app/@shared/services/product.service';
@@ -16,7 +16,15 @@ export class ProductsComponent implements OnInit {
   public busy$: Subscription[] = [];
   public products: ProductModel[] = [];
   public productDefaultImage: string = CONSTANTS.PRODUCTS.IMAGE_DEFAULT;
-  public displayedColumns: string[] = ['image', 'value', 'acquisitionPrice', 'sellingPrice', 'quantity', 'action'];
+  public displayedColumns: string[] = [
+    'image',
+    'value',
+    'acquisitionPrice',
+    'sellingPrice',
+    'department',
+    'quantity',
+    'action',
+  ];
 
   ngOnInit(): void {
     this.productsData();
