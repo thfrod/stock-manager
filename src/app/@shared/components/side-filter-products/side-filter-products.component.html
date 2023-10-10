@@ -32,6 +32,35 @@
     </mat-select>
   </mat-form-field>
 
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label>Preço mínimo de venda</mat-label>
+    <span matPrefix>R$ &nbsp;</span>
+    <input matInput type="number" name="minPrice" [(ngModel)]="minSalePrice" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label>Preço máximo de venda</mat-label>
+    <span matPrefix>R$ &nbsp;</span>
+    <input matInput type="number" name="maxPrice" [(ngModel)]="maxSalePrice" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label>Preço mínimo de compra</mat-label>
+    <span matPrefix>R$ &nbsp;</span>
+    <input matInput type="number" name="minPrice" [(ngModel)]="minPurchasePrice" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" floatLabel="always">
+    <mat-label>Preço máximo de compra</mat-label>
+    <span matPrefix>R$ &nbsp;</span>
+    <input matInput type="number" name="maxPrice" [(ngModel)]="maxPurchasePrice" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Quantidade mínima em estoque</mat-label>
+    <input matInput type="number" name="minQtdInStock" [(ngModel)]="minQtdInStock" />
+  </mat-form-field>
+
   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
     <button mat-stroked-button [mat-dialog-close]>Cancelar</button>
     <button mat-flat-button color="primary" [mat-dialog-close]="f.controls" [disabled]="!f.valid">Buscar</button>

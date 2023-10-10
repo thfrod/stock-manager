@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiUtilsService } from '@app/@shared/services/api-utils.service';
 import { ModalService } from '@app/@shared/services/modal.service';
 import { ProductService } from '@app/@shared/services/product.service';
 import { UserService } from '@app/@shared/services/user.service';
@@ -13,7 +14,7 @@ import { Subscription, forkJoin } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   public busy$: Subscription[] = [];
-  public showFilter = false;
+  public showFilter = true;
 
   constructor(
     private router: Router,
@@ -21,12 +22,11 @@ export class HeaderComponent implements OnInit {
     private credentialsService: CredentialsService,
     private readonly modalService: ModalService,
     private readonly userService: UserService,
-    private readonly productService: ProductService
+    private readonly productService: ProductService,
+    private readonly apiUtilsService: ApiUtilsService
   ) {}
 
-  ngOnInit(): void {
-    this.checkFilter();
-  }
+  ngOnInit(): void {}
 
   get username(): string | null {
     const credentials = this.credentialsService.credentials;
@@ -37,28 +37,21 @@ export class HeaderComponent implements OnInit {
     this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
   }
 
-  private checkFilter() {
-    const currentUrl = this.router.url;
-    if (currentUrl.includes('dashboard')) {
-    }
-    this.showFilter = true;
-  }
-
   public openSideFilter() {
     const filterName = this.router.url.split('/')[1];
 
     const filters = {
-      products: () => this.openSideProductsFilter(),
-      dashboard: () => this.openSideDashboardFilter(),
+      products: () => this.openSideFilterProducts(),
+      dashboard: () => this.openSideFilterDashboard(),
     };
     filters[filterName]();
   }
 
-  private openSideDashboardFilter() {
+  private openSideFilterDashboard() {
     this.busy$.push(
       forkJoin([this.userService.getUsersKeyValuePair(), this.productService.getProductsKeyValuePair()]).subscribe({
         next: (data) => {
-          const dialogRef = this.modalService.openSideFilter({ users: data[0], products: data[1] });
+          const dialogRef = this.modalService.openSideFilterDashboard({ users: data[0], products: data[1] });
           dialogRef.afterClosed().subscribe((result) => {
             if (result) {
             }
@@ -69,5 +62,18 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  private openSideProductsFilter() {}
+  private openSideFilterProducts() {
+    this.busy$.push(
+      forkJoin([this.apiUtilsService.getDepartments(), this.productService.getProductsKeyValuePair()]).subscribe({
+        next: (data) => {
+          const dialogRef = this.modalService.openSideFilterProducts({ departments: data[0], products: data[1] });
+          dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+            }
+          });
+        },
+        error: () => {},
+      })
+    );
+  }
 }
