@@ -16,6 +16,7 @@ export class ProductsComponent implements OnInit {
   public busy$: Subscription[] = [];
   public products: ProductModel[] = [];
   public productDefaultImage: string = CONSTANTS.PRODUCTS.IMAGE_DEFAULT;
+  public searchProductTerm: string;
   public displayedColumns: string[] = [
     'image',
     'value',
@@ -44,4 +45,6 @@ export class ProductsComponent implements OnInit {
       })
     );
   }
+
+  public addProduct() {}
 }

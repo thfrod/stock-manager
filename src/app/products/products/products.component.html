@@ -1,4 +1,14 @@
 <div class="content">
+  <div class="actions">
+    <form #f="ngForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Pesquisar produto</mat-label>
+        <input matInput name="search" [(ngModel)]="searchProductTerm" />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </form>
+    <button mat-flat-button color="primary" (click)="addProduct()"><mat-icon>add</mat-icon>Adicionar produto</button>
+  </div>
   <mat-card>
     <table mat-table [dataSource]="products">
       <ng-container matColumnDef="image">
