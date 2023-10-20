@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardDataModel } from '@app/@shared/models/utils.model';
 import { Subscription } from 'rxjs';
-import { DashboardService } from '../dashboard.service';
 import { ChartDataModel, TopListCardModel } from '../models/dashboard.model';
+import { DashboardService } from '../services/dashboard.service';
 
 @Component({
   selector: 'app-dashboard',

@@ -11,6 +11,7 @@ import { LogoTextComponent } from './components/logo-text/logo-text.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { SideFilterDashboardComponent } from './components/side-filter-dashboard/side-filter-dashboard.component';
 import { SideFilterProductsComponent } from './components/side-filter-products/side-filter-products.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { SideFilterProductsComponent } from './components/side-filter-products/s
     LogoTextComponent,
     SideFilterDashboardComponent,
     SideFilterProductsComponent,
+    NotFoundComponent,
   ],
   exports: [LoaderComponent, LogoComponent, LogoTextComponent, NgBusyModule],
 })

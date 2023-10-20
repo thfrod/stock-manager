@@ -1,4 +1,4 @@
-<mat-toolbar class="mat-elevation-z6 navbar" color="primary" fxLayout="column" fxLayoutAlign="space-between center">
+<mat-toolbar class="navbar" color="primary" fxLayout="column" fxLayoutAlign="space-between center">
   <div fxLayoutAlign="start center" fxLayoutGap="10px" fxLayout="column">
     <app-logo [size]="30" [color]="'#FFF'"></app-logo>
     <app-logo-text [size]="100" [color]="'#FFF'" fxHide.lt-sm></app-logo-text>
@@ -9,6 +9,10 @@
     <button mat-button routerLink="/products" routerLinkActive="active">
       <mat-icon>shopping_cart</mat-icon>
       <span translate>Products</span>
+    </button>
+    <button mat-button routerLink="/sales" routerLinkActive="active">
+      <mat-icon>attach_money</mat-icon>
+      <span translate>Vendas</span>
     </button>
     <button mat-button routerLink="/settings" routerLinkActive="active">
       <mat-icon>settings</mat-icon>
