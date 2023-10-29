@@ -1,3 +1,10 @@
 <div [ngBusy]="busy$">
+  <form ngForm="f">
+    <mat-form-field appearance="outline">
+      <mat-label>Produto</mat-label>
+      <input matInput placeholder="Ex. Vestido" [value]="product.value" [disabled]="editing" />
+    </mat-form-field>
+  </form>
+
   {{ product | json }}
 </div>

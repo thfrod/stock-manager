@@ -2,18 +2,22 @@
   <div fxLayoutAlign="start center" fxLayoutGap="10px" fxLayout="column">
     <app-logo [size]="30" [color]="'#FFF'"></app-logo>
     <app-logo-text [size]="100" [color]="'#FFF'" fxHide.lt-sm></app-logo-text>
+
     <button mat-button routerLink="/dashboard" routerLinkActive="active">
       <mat-icon>dashboard</mat-icon>
       <span>Dashboard</span>
     </button>
+
     <button mat-button routerLink="/products" routerLinkActive="active">
       <mat-icon>shopping_cart</mat-icon>
       <span translate>Products</span>
     </button>
+
     <button mat-button routerLink="/sales" routerLinkActive="active">
       <mat-icon>attach_money</mat-icon>
-      <span translate>Vendas</span>
+      <span translate>Sales</span>
     </button>
+
     <button mat-button routerLink="/settings" routerLinkActive="active">
       <mat-icon>settings</mat-icon>
       <span translate>Settings</span>

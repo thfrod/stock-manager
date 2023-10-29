@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductModel } from '@app/@shared/models/products.model';
+import { AlertService } from '@app/@shared/services/alert.service';
 import { ProductService } from '@app/@shared/services/product.service';
 import { Subscription } from 'rxjs';
 
@@ -12,12 +13,14 @@ import { Subscription } from 'rxjs';
 export class ProductComponent implements OnInit {
   public busy$: Subscription[] = [];
   public product: ProductModel = this.productService.getEmptyProduct();
+  public editing: boolean = false;
   private id: string | null = this.route.snapshot.paramMap.get('id');
 
   constructor(
+    private readonly productService: ProductService,
     private readonly route: ActivatedRoute,
-    private readonly router: Router,
-    private readonly productService: ProductService
+    private readonly alertService: AlertService,
+    private readonly router: Router
   ) {}
 
   ngOnDestroy(): void {
@@ -25,6 +28,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => (this.editing = !!params['edit']));
     this.initView();
   }
 
@@ -41,10 +45,11 @@ export class ProductComponent implements OnInit {
       this.productService.getProductById(id).subscribe({
         next: (product) => {
           this.product = product;
-          console.log(this.product);
         },
 
-        error: (err) => {},
+        error: (err) => {
+          this.alertService.error('Erro ao buscar produto', 'Fechar');
+        },
       })
     );
   }

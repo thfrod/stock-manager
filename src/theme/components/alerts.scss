@@ -1,0 +1,21 @@
+@import "../theme-variables";
+.alert {
+  &.alert-success {
+    background-color: $primary-green;
+    color: $white;
+  }
+
+  &.alert-error {
+    background-color: $primary-red;
+    color: $white;
+  }
+
+  &.alert-info {
+    background-color: $primary-blue;
+    color: $white;
+  }
+
+  button {
+    color: $white;
+  }
+}

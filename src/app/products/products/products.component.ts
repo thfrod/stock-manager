@@ -46,12 +46,10 @@ export class ProductsComponent implements OnInit {
   }
 
   public editProduct(id: string) {
-    this.router.navigate(['/products', id], { queryParams: { action: 'edit' } });
+    this.router.navigate(['/products', id], { queryParams: { edit: true } });
   }
 
-  public deleteProduct(id: string) {
-    this.router.navigate(['/products', id], { queryParams: { action: 'delete' } });
-  }
+  public deleteProduct(id: string) {}
 
   private productsData() {
     this.busy$.push(
