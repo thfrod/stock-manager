@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductModel } from '@app/@shared/models/products.model';
 import { AlertService } from '@app/@shared/services/alert.service';
 import { ProductService } from '@app/@shared/services/product.service';
+import { TitleService } from '@app/@shared/services/title.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -18,8 +19,9 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private readonly productService: ProductService,
-    private readonly route: ActivatedRoute,
+    private readonly titleService: TitleService,
     private readonly alertService: AlertService,
+    private readonly route: ActivatedRoute,
     private readonly router: Router
   ) {}
 
@@ -29,6 +31,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => (this.editing = !!params['edit']));
+    this.titleService.setPageTitle('Produtos');
     this.initView();
   }
 

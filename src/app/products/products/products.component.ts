@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CONSTANTS } from '@app/@shared/constants/constants';
 import { ProductModel } from '@app/@shared/models/products.model';
 import { ProductService } from '@app/@shared/services/product.service';
+import { TitleService } from '@app/@shared/services/title.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -14,7 +15,8 @@ export class ProductsComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly productService: ProductService
+    private readonly productService: ProductService,
+    private readonly titleService: TitleService
   ) {}
 
   public busy$: Subscription[] = [];
@@ -33,6 +35,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsData();
+    this.titleService.setPageTitle('Produtos');
   }
 
   ngOnDestroy() {

@@ -1,8 +1,20 @@
-<div [ngBusy]="busy$">
+<div class="content" [ngBusy]="busy$">
   <form ngForm="f">
     <mat-form-field appearance="outline">
       <mat-label>Produto</mat-label>
-      <input matInput placeholder="Ex. Vestido" [value]="product.value" [disabled]="editing" />
+      <input matInput placeholder="Ex. Vestido" [(ngModel)]="product.value" [disabled]="!editing" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Preço de aquisição</mat-label>
+      <input
+        matInput
+        placeholder="Ex. Vestido"
+        name="acquisitionPrice"
+        [value]="product.acquisitionPrice"
+        [disabled]="!editing"
+        [(ngModel)]="product.acquisitionPrice"
+      />
     </mat-form-field>
   </form>
 
