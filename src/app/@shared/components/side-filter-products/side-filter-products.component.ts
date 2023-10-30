@@ -11,9 +11,9 @@ import { KeyValuePair } from '@app/@shared/models/keyValuePair.model';
 export class SideFilterProductsComponent implements OnInit {
   @ViewChild('f') filterForm: NgForm;
   public departmentSelected: KeyValuePair;
+  public products: KeyValuePair[] = this.data.products;
   public productSelected: KeyValuePair;
   public departments: KeyValuePair[] = this.data.departments;
-  public products: KeyValuePair[] = this.data.products;
   public departmentsFiltered = this.departments.slice();
   public productsFiltered = this.products.slice();
   public minSalePrice: number = 0;

@@ -10,7 +10,7 @@ export class ApiUtilsService {
 
   public getDepartments(): Observable<DepartmentModel[]> {
     return of([
-      { id: 1, value: 'Clothes' },
+      { id: 11, value: 'Clothes' },
       { id: 2, value: 'Shoes' },
       { id: 3, value: 'Accessories' },
       { id: 4, value: 'Electronics' },
@@ -20,6 +20,7 @@ export class ApiUtilsService {
       { id: 8, value: 'Sports' },
       { id: 9, value: 'Books' },
       { id: 10, value: 'Food' },
+      { id: 1, value: 'Masculino' },
     ]);
   }
 }

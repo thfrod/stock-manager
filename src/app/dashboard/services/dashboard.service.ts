@@ -19,7 +19,7 @@ export class DashboardService {
       quantitySold: 18,
       description: '',
       image: '/assets/products/1.jpg',
-      department: { id: 1, value: 'Masculino' },
+      department: [{ id: 1, value: 'Masculino' }],
     };
 
     return of({

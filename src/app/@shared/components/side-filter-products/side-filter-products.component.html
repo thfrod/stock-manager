@@ -34,26 +34,22 @@
 
   <mat-form-field appearance="outline" floatLabel="always">
     <mat-label>Preço mínimo de venda</mat-label>
-    <span matPrefix>R$ &nbsp;</span>
-    <input matInput type="number" name="minPrice" [(ngModel)]="minSalePrice" />
+    <input matInput type="text" name="minPrice" [(ngModel)]="minSalePrice" currencyMask />
   </mat-form-field>
 
   <mat-form-field appearance="outline" floatLabel="always">
     <mat-label>Preço máximo de venda</mat-label>
-    <span matPrefix>R$ &nbsp;</span>
-    <input matInput type="number" name="maxPrice" [(ngModel)]="maxSalePrice" />
+    <input matInput type="text" name="maxPrice" [(ngModel)]="maxSalePrice" currencyMask />
   </mat-form-field>
 
   <mat-form-field appearance="outline" floatLabel="always">
     <mat-label>Preço mínimo de compra</mat-label>
-    <span matPrefix>R$ &nbsp;</span>
-    <input matInput type="number" name="minPrice" [(ngModel)]="minPurchasePrice" />
+    <input matInput type="text" name="minPrice" [(ngModel)]="minPurchasePrice" currencyMask />
   </mat-form-field>
 
   <mat-form-field appearance="outline" floatLabel="always">
     <mat-label>Preço máximo de compra</mat-label>
-    <span matPrefix>R$ &nbsp;</span>
-    <input matInput type="number" name="maxPrice" [(ngModel)]="maxPurchasePrice" />
+    <input matInput type="text" name="maxPrice" [(ngModel)]="maxPurchasePrice" currencyMask />
   </mat-form-field>
 
   <mat-form-field appearance="outline">
