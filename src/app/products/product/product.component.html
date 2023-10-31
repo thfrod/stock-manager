@@ -1,13 +1,27 @@
 <div class="content" [ngBusy]="busy$">
-  <form #f="ngForm" *ngIf="editing">
+  <div class="actions">
+    <button mat-flat-button [color]="!editing ? 'primary' : 'warn'" (click)="editing = !editing">
+      <ng-container *ngIf="!editing"><mat-icon>edit</mat-icon> Editar produto</ng-container>
+      <ng-container *ngIf="editing"><mat-icon>close</mat-icon> Cancelar edição</ng-container>
+    </button>
+  </div>
+  <form #f="ngForm">
     <mat-form-field appearance="outline">
       <mat-label>Produto</mat-label>
-      <input matInput placeholder="Ex. Vestido" name="product" [(ngModel)]="product.value" type="text" />
+      <input
+        [disabled]="!editing"
+        matInput
+        placeholder="Ex. Vestido"
+        name="product"
+        [(ngModel)]="product.value"
+        type="text"
+      />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Preço de aquisição</mat-label>
       <input
+        [disabled]="!editing"
         matInput
         name="acquisitionPrice"
         [(ngModel)]="product.acquisitionPrice"
@@ -19,17 +33,30 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Preço de venda</mat-label>
-      <input matInput name="sellingPrice" [(ngModel)]="product.sellingPrice" currencyMask type="text" />
+      <input
+        [disabled]="!editing"
+        matInput
+        name="sellingPrice"
+        [(ngModel)]="product.sellingPrice"
+        currencyMask
+        type="text"
+      />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Quantidade em estoque</mat-label>
-      <input matInput name="quantity" [(ngModel)]="product.quantity" type="number" />
+      <input [disabled]="!editing" matInput name="quantity" [(ngModel)]="product.quantity" type="number" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Departamentos</mat-label>
-      <mat-select name="department" [(ngModel)]="product.department" multiple [compareWith]="compareFn">
+      <mat-select
+        name="department"
+        [(ngModel)]="product.department"
+        multiple
+        [compareWith]="compareFn"
+        [disabled]="!editing"
+      >
         <mat-select-filter
           [placeholder]="'Procure por um departamento...'"
           [displayMember]="'value'"
@@ -45,9 +72,16 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Descrição</mat-label>
-      <textarea rows="10" matInput name="description" [(ngModel)]="product.description" type="text"></textarea>
+      <textarea
+        rows="10"
+        matInput
+        name="description"
+        [(ngModel)]="product.description"
+        type="text"
+        [disabled]="!editing"
+      ></textarea>
     </mat-form-field>
 
-    <button mat-flat-button color="primary">Enviar</button>
+    <button mat-flat-button color="primary" *ngIf="editing">Enviar</button>
   </form>
 </div>
