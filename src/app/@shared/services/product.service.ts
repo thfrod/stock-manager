@@ -25,6 +25,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 2,
@@ -40,6 +41,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 3,
@@ -55,6 +57,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 4,
@@ -70,6 +73,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 5,
@@ -85,6 +89,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 6,
@@ -100,6 +105,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 7,
@@ -115,6 +121,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 8,
@@ -130,6 +137,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 9,
@@ -145,6 +153,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 10,
@@ -160,6 +169,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
     ]);
   }
@@ -232,6 +242,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 2,
@@ -247,6 +258,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 3,
@@ -262,6 +274,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 4,
@@ -277,6 +290,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 5,
@@ -292,6 +306,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 6,
@@ -307,6 +322,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 7,
@@ -322,6 +338,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 8,
@@ -337,6 +354,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 9,
@@ -352,6 +370,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
       {
         id: 10,
@@ -367,6 +386,7 @@ export class ProductService {
             value: 'Masculino',
           },
         ],
+        active: true,
       },
     ];
 
@@ -389,6 +409,7 @@ export class ProductService {
           value: '',
         },
       ],
+      active: true,
     };
   }
 }

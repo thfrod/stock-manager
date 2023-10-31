@@ -8,9 +8,11 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { ProductComponent } from './product/product.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products/products.component';
+import { FormProductComponent } from './components/form-product/form-product.component';
+import { NewProductComponent } from './new-product/new-product.component';
 
 @NgModule({
-  declarations: [ProductsComponent, ProductComponent],
+  declarations: [ProductsComponent, ProductComponent, FormProductComponent, NewProductComponent],
   imports: [
     CommonModule,
     MaterialModule,

@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { KeyValuePair } from '@app/@shared/models/keyValuePair.model';
 import { ProductModel } from '@app/@shared/models/products.model';
 import { AlertService } from '@app/@shared/services/alert.service';
-import { ApiUtilsService } from '@app/@shared/services/api-utils.service';
 import { ProductService } from '@app/@shared/services/product.service';
 import { TitleService } from '@app/@shared/services/title.service';
 import { Subscription } from 'rxjs';
@@ -17,17 +16,15 @@ export class ProductComponent implements OnInit {
   public busy$: Subscription[] = [];
   public product: ProductModel = this.productService.getEmptyProduct();
   public editing: boolean = false;
+  public departments: KeyValuePair[] = this.route.snapshot.data['departments'];
   private id: string | null = this.route.snapshot.paramMap.get('id');
-  public departments: KeyValuePair[] = [];
-  public departmentsFiltered = this.departments.slice();
 
   constructor(
     private readonly productService: ProductService,
     private readonly titleService: TitleService,
     private readonly alertService: AlertService,
     private readonly route: ActivatedRoute,
-    private readonly router: Router,
-    private readonly apiUtilsService: ApiUtilsService
+    private readonly router: Router
   ) {}
 
   ngOnDestroy(): void {
@@ -38,7 +35,6 @@ export class ProductComponent implements OnInit {
     this.route.queryParams.subscribe((params) => (this.editing = !!params['edit']));
     this.titleService.setPageTitle('Produtos');
     this.initView();
-    this.getDepartments();
   }
 
   private initView() {
@@ -61,27 +57,5 @@ export class ProductComponent implements OnInit {
         },
       })
     );
-  }
-  compareFn(item1: KeyValuePair, item2: KeyValuePair) {
-    return item1 && item2 ? item1.id === item2.id : item1 === item2;
-  }
-
-  private getDepartments(): void {
-    this.busy$.push(
-      this.apiUtilsService.getDepartments().subscribe({
-        next: (departments) => {
-          this.departments = departments;
-          this.departmentsFiltered = departments.slice();
-        },
-
-        error: () => {
-          this.alertService.error('Erro ao buscar departamentos', 'Fechar');
-        },
-      })
-    );
-  }
-
-  compareWithFn(item1, item2) {
-    return item1 && item2 ? item1.nom === item2.nom : item1 === item2;
   }
 }

@@ -8,6 +8,7 @@ export interface ProductModel extends KeyValuePair {
   description: string;
   image?: string;
   department: DepartmentModel[];
+  active: boolean;
   search?: string;
 }
 export interface ProductKVPModel extends KeyValuePair {

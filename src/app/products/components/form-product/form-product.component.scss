@@ -1,0 +1,19 @@
+@import "/src/theme/theme-variables";
+
+:host {
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input,
+    textarea,
+    mat-select::ng-deep .mat-select-min-line,
+    mat-label {
+      color: $black;
+    }
+
+    .mat-form-field-disabled {
+      cursor: not-allowed;
+    }
+  }
+}

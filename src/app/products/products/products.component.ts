@@ -42,14 +42,16 @@ export class ProductsComponent implements OnInit {
     this.busy$.forEach((subscription) => subscription.unsubscribe());
   }
 
-  public addProduct() {}
+  public addProduct() {
+    this.router.navigate(['/products', 'new-product']);
+  }
 
   public seeProduct(id: string) {
-    this.router.navigate(['/products', id]);
+    this.router.navigate(['/products/product', id]);
   }
 
   public editProduct(id: string) {
-    this.router.navigate(['/products', id], { queryParams: { edit: true } });
+    this.router.navigate(['/products/product', id], { queryParams: { edit: true } });
   }
 
   public deleteProduct(id: string) {}

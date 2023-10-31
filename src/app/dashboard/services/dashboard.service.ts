@@ -20,6 +20,7 @@ export class DashboardService {
       description: '',
       image: '/assets/products/1.jpg',
       department: [{ id: 1, value: 'Masculino' }],
+      active: true,
     };
 
     return of({
