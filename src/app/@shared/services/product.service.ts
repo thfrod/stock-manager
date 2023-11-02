@@ -403,12 +403,7 @@ export class ProductService {
       quantity: 0,
       quantitySold: 0,
       description: '',
-      department: [
-        {
-          id: 0,
-          value: '',
-        },
-      ],
+      department: [],
       active: true,
     };
   }

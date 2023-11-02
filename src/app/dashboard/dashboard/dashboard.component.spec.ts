@@ -1,10 +1,9 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { SharedModule } from '@shared';
 import { MaterialModule } from '@app/material.module';
+import { SharedModule } from '@shared';
 import { DashboardComponent } from './dashboard.component';
 
 describe('DashboardComponent', () => {
@@ -13,7 +12,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, FlexLayoutModule, MaterialModule, SharedModule, HttpClientTestingModule],
+      imports: [BrowserAnimationsModule, MaterialModule, SharedModule, HttpClientTestingModule],
       declarations: [DashboardComponent],
       providers: [],
     }).compileComponents();

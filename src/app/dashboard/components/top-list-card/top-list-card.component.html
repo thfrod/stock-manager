@@ -9,7 +9,7 @@
   <mat-card-content>
     <mat-list>
       <mat-list-item *ngFor="let product of data.products; index as i; last as last">
-        <div mat-card-avatar [style.background-image]="'url(' + product.image + ')'"></div>
+        <div mat-card-avatar [style.background-image]="'url(' + product.thumbmail + ')'"></div>
         <span mat-line>{{ product.value }}</span>
         <span mat-line>N° de vendas: {{ product.quantitySold }}</span>
         <mat-divider *ngIf="!last"></mat-divider>

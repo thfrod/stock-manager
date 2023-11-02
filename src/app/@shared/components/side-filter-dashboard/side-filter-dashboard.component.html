@@ -1,36 +1,26 @@
 <form #f="ngForm">
   <h2>Filtrar por:</h2>
-  <mat-form-field appearance="outline">
-    <mat-label>Usuário</mat-label>
-    <mat-select name="user" [ngModel]="userSelected">
-      <mat-select-filter
-        [placeholder]="'Procure por um usuário...'"
-        [displayMember]="'search'"
-        [array]="users"
-        (filteredReturn)="usersFiltered = $event"
-        noResultsMessage="Não foi encontrado usuário com base na sua pesquisa"
-      ></mat-select-filter>
-      <mat-option *ngFor="let user of usersFiltered" [value]="user.id">
-        {{ user.value }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <ng-select
+    [(ngModel)]="userSelected"
+    appearance="outline"
+    notFoundText="Nenhum usuário foi encontrado"
+    name="user"
+    placeholder="Usuário"
+    class="my-ng-select"
+  >
+    <ng-option *ngFor="let user of users" [value]="user">{{ user.value }}</ng-option>
+  </ng-select>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Produto</mat-label>
-    <mat-select name="product" [ngModel]="productSelected">
-      <mat-select-filter
-        [placeholder]="'Procure por um produto...'"
-        [displayMember]="'search'"
-        [array]="products"
-        (filteredReturn)="productsFiltered = $event"
-        noResultsMessage="Não foi encontrado produto com base na sua pesquisa"
-      ></mat-select-filter>
-      <mat-option *ngFor="let product of productsFiltered" [value]="product.id">
-        {{ product.value }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <ng-select
+    [(ngModel)]="productSelected"
+    appearance="outline"
+    notFoundText="Nenhum produto foi encontrado"
+    name="product"
+    placeholder="Produto"
+    class="my-ng-select"
+  >
+    <ng-option *ngFor="let product of products" [value]="product.id">{{ product.value }}</ng-option>
+  </ng-select>
 
   <mat-form-field appearance="outline">
     <mat-label>Data inicial:</mat-label>

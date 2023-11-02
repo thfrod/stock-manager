@@ -1,7 +1,16 @@
+@import "src/theme/components/ng-select.scss";
+
 :host {
   form {
     mat-form-field {
       width: 100%;
+    }
+    .actions {
+      display: flex;
+      gap: 1rem;
+      button {
+        flex: 1;
+      }
     }
   }
 }

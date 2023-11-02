@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { TranslateModule } from '@ngx-translate/core';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@app/material.module';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { TranslateModule } from '@ngx-translate/core';
 import { BusyConfig, NgBusyModule } from 'ng-busy';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { LoaderComponent } from './components/loader/loader.component';
@@ -16,10 +15,10 @@ import { SideFilterProductsComponent } from './components/side-filter-products/s
 
 @NgModule({
   imports: [
-    FlexLayoutModule,
     MaterialModule,
     TranslateModule,
     CommonModule,
+    NgSelectModule,
     FormsModule,
     ReactiveFormsModule,
     CurrencyMaskModule,

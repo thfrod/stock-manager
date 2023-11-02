@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { MaterialModule } from '@app/material.module';
@@ -11,7 +10,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule, SharedModule, FlexLayoutModule, MaterialModule, DashboardRoutingModule],
+  imports: [CommonModule, TranslateModule, SharedModule, MaterialModule, DashboardRoutingModule],
   declarations: [DashboardComponent, DashboardChartComponent, TopListCardComponent],
 })
 export class DashboardModule {}

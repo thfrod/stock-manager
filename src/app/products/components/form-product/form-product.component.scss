@@ -1,4 +1,5 @@
 @import "/src/theme/theme-variables";
+@import "src/theme/components/ng-select.scss";
 
 :host {
   form {
@@ -7,9 +8,15 @@
 
     input,
     textarea,
+    mat-label,
     mat-select::ng-deep .mat-select-min-line,
-    mat-label {
+    mat-slide-toggle::ng-deep .mat-slide-toggle-content {
       color: $black;
+    }
+
+    .mat-slide-toggle.mat-disabled {
+      opacity: 1;
+      cursor: not-allowed;
     }
 
     .mat-form-field-disabled {

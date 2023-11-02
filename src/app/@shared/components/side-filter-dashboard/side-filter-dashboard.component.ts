@@ -15,8 +15,6 @@ export class SideFilterDashboardComponent implements OnInit {
   public productSelected: KeyValuePair;
   public users: KeyValuePair[] = this.data.users;
   public products: KeyValuePair[] = this.data.products;
-  public usersFiltered = this.users.slice();
-  public productsFiltered = this.products.slice();
   public startDate: Moment;
   public endDate: Moment;
 

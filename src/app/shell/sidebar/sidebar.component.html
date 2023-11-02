@@ -1,7 +1,7 @@
-<mat-toolbar class="navbar" color="primary" fxLayout="column" fxLayoutAlign="space-between center">
-  <div fxLayoutAlign="start center" fxLayoutGap="10px" fxLayout="column">
+<mat-toolbar class="navbar" color="primary">
+  <div class="wrapper">
     <app-logo [size]="30" [color]="'#FFF'"></app-logo>
-    <app-logo-text [size]="100" [color]="'#FFF'" fxHide.lt-sm></app-logo-text>
+    <app-logo-text [size]="100" [color]="'#FFF'"></app-logo-text>
 
     <button mat-button routerLink="/dashboard" routerLinkActive="active">
       <mat-icon>dashboard</mat-icon>

@@ -1,79 +1,65 @@
-<form #f="ngForm">
-  <mat-form-field appearance="outline">
-    <mat-label>Produto</mat-label>
-    <input
-      [disabled]="!editing"
-      matInput
-      placeholder="Ex. Vestido"
-      name="product"
-      [(ngModel)]="product.value"
-      type="text"
-    />
-  </mat-form-field>
+<ng-container [ngTemplateOutlet]="editing ? thenBlock : elseBlock"></ng-container>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Preço de aquisição</mat-label>
-    <input
-      [disabled]="!editing"
-      matInput
-      name="acquisitionPrice"
-      [(ngModel)]="product.acquisitionPrice"
-      currencyMask
-      [options]="{ allowNegative: false }"
-      type="text"
-    />
-  </mat-form-field>
+<ng-template #thenBlock>
+  <form #f="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Produto</mat-label>
+      <input matInput placeholder="Ex. Vestido" name="product" [(ngModel)]="product.value" type="text" />
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Preço de venda</mat-label>
-    <input
-      [disabled]="!editing"
-      matInput
-      name="sellingPrice"
-      [(ngModel)]="product.sellingPrice"
-      currencyMask
-      type="text"
-    />
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Preço de aquisição</mat-label>
+      <input
+        matInput
+        name="acquisitionPrice"
+        [(ngModel)]="product.acquisitionPrice"
+        currencyMask
+        [options]="{ allowNegative: false }"
+        type="text"
+      />
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Quantidade em estoque</mat-label>
-    <input [disabled]="!editing" matInput name="quantity" [(ngModel)]="product.quantity" type="number" />
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Preço de venda</mat-label>
+      <input matInput name="sellingPrice" [(ngModel)]="product.sellingPrice" currencyMask type="text" />
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Departamentos</mat-label>
-    <mat-select
-      name="department"
+    <mat-form-field appearance="outline">
+      <mat-label>Quantidade em estoque</mat-label>
+      <input matInput name="quantity" [(ngModel)]="product.quantity" type="number" />
+    </mat-form-field>
+
+    <mat-slide-toggle [(ngModel)]="product.active" color="primary" name="active" class="mb-20">
+      Produto ativo: {{ product.active ? 'Sim' : 'Não' }}
+    </mat-slide-toggle>
+
+    <ng-select
       [(ngModel)]="product.department"
-      multiple
-      [compareWith]="compareFn"
-      [disabled]="!editing"
+      appearance="outline"
+      notFoundText="Nenhum departamento foi encontrado"
+      name="department"
+      placeholder="Departamento"
+      class="my-ng-select"
+      [compareWith]="compareWithFn"
+      [multiple]="true"
     >
-      <mat-select-filter
-        [placeholder]="'Procure por um departamento...'"
-        [displayMember]="'value'"
-        [array]="departments"
-        (filteredReturn)="departmentsFiltered = $event"
-        noResultsMessage="Não foi encontrado departamento com base na sua pesquisa"
-      ></mat-select-filter>
-      <mat-option *ngFor="let department of departmentsFiltered" [value]="department">
-        {{ department.value }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+      <ng-option *ngFor="let department of departments" [value]="department">{{ department.value }}</ng-option>
+    </ng-select>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Descrição</mat-label>
-    <textarea
-      rows="10"
-      matInput
-      name="description"
-      [(ngModel)]="product.description"
-      type="text"
-      [disabled]="!editing"
-    ></textarea>
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição</mat-label>
+      <textarea rows="10" matInput name="description" [(ngModel)]="product.description" type="text"></textarea>
+    </mat-form-field>
 
-  <button mat-flat-button color="primary" *ngIf="editing">Enviar</button>
-</form>
+    <button mat-flat-button color="primary" *ngIf="editing">Enviar</button>
+  </form>
+</ng-template>
+
+<ng-template #elseBlock>
+  <p><strong>Nome do produto:</strong> {{ product.value }}</p>
+  <p><strong>Preço de aquisição:</strong> {{ product.acquisitionPrice | currency }}</p>
+  <p><strong>Preço de venda:</strong> {{ product.sellingPrice | currency }}</p>
+  <p><strong>Quantidade em estoque:</strong> {{ product.quantity }}</p>
+  <p><strong>Quantidade vendida:</strong> {{ product.quantitySold }}</p>
+  <p><strong>Departamentos:</strong> {{ product.department | join : 'value' }}</p>
+</ng-template>

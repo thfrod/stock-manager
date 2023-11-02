@@ -24,7 +24,7 @@ export class FormProductComponent implements OnInit {
     this.busy$.forEach((subscription: Subscription) => subscription.unsubscribe());
   }
 
-  compareFn(item1: KeyValuePair, item2: KeyValuePair) {
+  compareWithFn(item1: KeyValuePair, item2: KeyValuePair) {
     return item1 && item2 ? item1.id === item2.id : item1 === item2;
   }
 }

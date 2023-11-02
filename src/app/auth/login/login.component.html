@@ -1,16 +1,16 @@
-<div fxFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.5rem" class="mat-typography">
+<div class="mat-typography">
   <div>
-    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2rem" class="mb-20">
+    <div class="mb-20 logo">
       <app-logo></app-logo>
       <app-logo-text></app-logo-text>
     </div>
   </div>
-  <div class="login-container" fxLayout="row" fxLayoutAlign="center">
-    <mat-card fxFlex="90%" fxFlex.sm="66%" fxFlex.md="50%" fxFlex.gt-md="33%" class="login-box">
+  <div class="login-container">
+    <mat-card class="login-box">
       <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
         <div class="login-error" [hidden]="!error" translate>Username or password incorrect.</div>
         <br />
-        <div class="login-fields" fxLayout="column">
+        <div class="login-fields">
           <mat-form-field [hideRequiredMarker]="true" appearance="outline">
             <input
               type="text"

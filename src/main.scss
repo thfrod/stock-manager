@@ -2,6 +2,7 @@
 @import "theme/theme-variables";
 @import "~material-design-icons-iconfont/src/material-design-icons";
 @import "~@angular/material/theming";
+@import "~@ng-select/ng-select/themes/material.theme.css";
 
 $custom-typography: mat-typography-config(
   $font-family: "'Inter', sans-serif",
