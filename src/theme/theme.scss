@@ -101,6 +101,16 @@ body {
   }
 }
 
+//btns
+.btn-success {
+  background-color: $primary-green;
+}
+
+.btn-success {
+  background-color: $dark-green;
+  color: $white;
+}
+
 @keyframes slideInRight {
   from {
     transform: translateX(100%);

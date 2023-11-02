@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { KeyValuePair } from '@app/@shared/models/keyValuePair.model';
 import { ProductModel } from '@app/@shared/models/products.model';
 import { AlertService } from '@app/@shared/services/alert.service';
 import { ProductService } from '@app/@shared/services/product.service';
@@ -7,14 +8,15 @@ import { TitleService } from '@app/@shared/services/title.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss'],
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.scss'],
 })
-export class ProductComponent implements OnInit {
+export class EditProductComponent implements OnInit {
   public busy$: Subscription[] = [];
+  public departments: KeyValuePair[] = this.route.snapshot.data['departments'];
   public product: ProductModel = this.productService.getEmptyProduct();
-  public id: string | null = this.route.snapshot.paramMap.get('id');
+  private id: string | null = this.route.snapshot.paramMap.get('id');
 
   constructor(
     private readonly productService: ProductService,
@@ -23,10 +25,6 @@ export class ProductComponent implements OnInit {
     private readonly route: ActivatedRoute,
     private readonly router: Router
   ) {}
-
-  ngOnDestroy(): void {
-    this.busy$.forEach((subscription: Subscription) => subscription.unsubscribe());
-  }
 
   ngOnInit(): void {
     this.initView();

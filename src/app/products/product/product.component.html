@@ -1,9 +1,14 @@
 <div class="content" [ngBusy]="busy$">
   <div class="actions">
-    <button mat-flat-button [color]="!editing ? 'primary' : 'warn'" (click)="editing = !editing">
-      <ng-container *ngIf="!editing"><mat-icon>edit</mat-icon> Editar produto</ng-container>
-      <ng-container *ngIf="editing"><mat-icon>close</mat-icon> Cancelar edição</ng-container>
+    <button mat-flat-button color="primary" [routerLink]="['/products/edit-product', id]">
+      <mat-icon>edit</mat-icon> Editar produto
     </button>
+    <button mat-flat-button class="btn-success"><mat-icon>folder</mat-icon> Exportar relatório</button>
   </div>
-  <app-form-product [departments]="departments" [product]="product" [editing]="editing"></app-form-product>
+  <p><strong>Nome do produto:</strong> {{ product.value }}</p>
+  <p><strong>Preço de aquisição:</strong> {{ product.acquisitionPrice | currency }}</p>
+  <p><strong>Preço de venda:</strong> {{ product.sellingPrice | currency }}</p>
+  <p><strong>Quantidade em estoque:</strong> {{ product.quantity }}</p>
+  <p><strong>Quantidade vendida:</strong> {{ product.quantitySold }}</p>
+  <p><strong>Departamentos:</strong> {{ product.department | join : 'value' }}</p>
 </div>

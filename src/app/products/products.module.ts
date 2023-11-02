@@ -12,9 +12,17 @@ import { NewProductComponent } from './new-product/new-product.component';
 import { ProductComponent } from './product/product.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products/products.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
-  declarations: [ProductsComponent, ProductComponent, FormProductComponent, NewProductComponent, JoinPipe],
+  declarations: [
+    ProductsComponent,
+    ProductComponent,
+    FormProductComponent,
+    NewProductComponent,
+    JoinPipe,
+    EditProductComponent,
+  ],
   imports: [
     CommonModule,
     MaterialModule,

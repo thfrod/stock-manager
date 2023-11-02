@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { marker } from '@biesbjerg/ngx-translate-extract-marker';
+import { EditProductComponent } from './edit-product/edit-product.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { ProductComponent } from './product/product.component';
 import { ProductsComponent } from './products/products.component';
@@ -19,6 +20,12 @@ const routes: Routes = [
     path: 'new-product',
     component: NewProductComponent,
     data: { title: marker('Novo Produto') },
+    resolve: { departments: ProductResolver },
+  },
+  {
+    path: 'edit-product/:id',
+    component: EditProductComponent,
+    data: { title: marker('Produtos') },
     resolve: { departments: ProductResolver },
   },
 ];

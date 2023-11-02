@@ -12,13 +12,10 @@ export class FormProductComponent implements OnInit {
   public busy$: Subscription[] = [];
   public departmentsFiltered: KeyValuePair[] = [];
   @Input() product: ProductModel;
-  @Input() editing: boolean = false;
   @Input() departments: KeyValuePair[] = [];
   constructor() {}
 
-  ngOnInit(): void {
-    this.departmentsFiltered = this.departments.slice();
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.busy$.forEach((subscription: Subscription) => subscription.unsubscribe());
