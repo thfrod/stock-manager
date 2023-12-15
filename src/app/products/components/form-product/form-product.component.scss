@@ -6,21 +6,15 @@
     display: flex;
     flex-direction: column;
 
-    input,
-    textarea,
-    mat-label,
-    mat-select::ng-deep .mat-select-min-line,
-    mat-slide-toggle::ng-deep .mat-slide-toggle-content {
-      color: $black;
+    .input-wrapper {
+      display: flex;
+      gap: 1rem;
+      mat-form-field {
+        flex: 1;
+      }
     }
-
-    .mat-slide-toggle.mat-disabled {
-      opacity: 1;
-      cursor: not-allowed;
-    }
-
-    .mat-form-field-disabled {
-      cursor: not-allowed;
+    mat-slide-toggle {
+      width: fit-content;
     }
   }
 }

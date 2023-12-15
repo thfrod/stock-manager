@@ -4,26 +4,39 @@
     <input matInput placeholder="Ex. Vestido" name="product" [(ngModel)]="product.value" type="text" />
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Preço de aquisição</mat-label>
-    <input
-      matInput
-      name="acquisitionPrice"
-      [(ngModel)]="product.acquisitionPrice"
-      currencyMask
-      [options]="{ allowNegative: false }"
-      type="text"
-    />
-  </mat-form-field>
+  <div class="input-wrapper">
+    <mat-form-field appearance="outline">
+      <mat-label>Preço de aquisição</mat-label>
+      <input
+        matInput
+        name="acquisitionPrice"
+        [(ngModel)]="product.acquisitionPrice"
+        currencyMask
+        [options]="{ allowNegative: false }"
+        type="text"
+      />
+    </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Preço de venda</mat-label>
-    <input matInput name="sellingPrice" [(ngModel)]="product.sellingPrice" currencyMask type="text" />
-  </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Preço de venda</mat-label>
+      <input matInput name="sellingPrice" [(ngModel)]="product.sellingPrice" currencyMask type="text" />
+    </mat-form-field>
+  </div>
 
   <mat-form-field appearance="outline">
     <mat-label>Quantidade em estoque</mat-label>
     <input matInput name="quantity" [(ngModel)]="product.quantity" type="number" />
+  </mat-form-field>
+
+  <!-- TODO: Entender pq o ngx mat file input não trabalha bem com o appearance="outline" -->
+  <mat-form-field appearance="outline">
+    <ngx-mat-file-input
+      placeholder="Foto do produto"
+      name="thumbnail"
+      title="Foto do produto"
+      [(ngModel)]="product.thumbnail"
+    ></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
   </mat-form-field>
 
   <mat-slide-toggle [(ngModel)]="product.active" color="primary" name="active" class="mb-20">

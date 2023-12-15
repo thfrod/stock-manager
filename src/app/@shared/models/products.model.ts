@@ -6,7 +6,7 @@ export interface ProductModel extends KeyValuePair {
   quantity: number;
   quantitySold: number;
   description: string;
-  thumbmail?: string;
+  thumbnail?: string;
   images?: string[];
   department: DepartmentModel[];
   active: boolean;

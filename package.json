@@ -43,6 +43,7 @@
     "moment": "^2.29.4",
     "ng-busy": "^14.0.0",
     "ng2-currency-mask": "^13.0.3",
+    "ngx-material-file-input": "^4.0.1",
     "prettier-eslint": "^15.0.1",
     "rxjs": "^7.5.0",
     "tslib": "^2.3.0",
