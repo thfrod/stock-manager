@@ -56,14 +56,14 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>Ação</th>
         <td [ngClass]="{ 'no-bt-border': last }" mat-cell *matCellDef="let product; let last = last">
-          <button mat-icon-button (click)="editProduct(product.id)">
+          <button mat-icon-button (click)="editProduct(product.id)" matTooltip="Editar produto">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn" (click)="deleteProduct(product.id)">
+          <button mat-icon-button color="warn" (click)="deleteProduct(product.id)" matTooltip="Excluir produto">
             <mat-icon>delete</mat-icon>
           </button>
 
-          <button mat-icon-button (click)="seeProduct(product.id)">
+          <button mat-icon-button (click)="seeProduct(product.id)" matTooltip="Ver produto">
             <mat-icon>visibility</mat-icon>
           </button>
         </td>

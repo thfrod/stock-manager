@@ -5,6 +5,7 @@ import { ProductModel } from '@app/@shared/models/products.model';
 import { ProductService } from '@app/@shared/services/product.service';
 import { TitleService } from '@app/@shared/services/title.service';
 import { Subscription } from 'rxjs';
+import { ModalServiceService } from '../services/modal-service.service';
 
 @Component({
   selector: 'app-products',
@@ -13,10 +14,11 @@ import { Subscription } from 'rxjs';
 })
 export class ProductsComponent implements OnInit {
   constructor(
-    private readonly route: ActivatedRoute,
-    private readonly router: Router,
+    private readonly modalService: ModalServiceService,
     private readonly productService: ProductService,
-    private readonly titleService: TitleService
+    private readonly titleService: TitleService,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router
   ) {}
 
   public busy$: Subscription[] = [];
@@ -54,7 +56,15 @@ export class ProductsComponent implements OnInit {
     this.router.navigate(['/products/edit-product', id]);
   }
 
-  public deleteProduct(id: string) {}
+  public deleteProduct(id: string) {
+    this.modalService
+      .openModalDeleteProduct()
+      .afterClosed()
+      .subscribe((result) => {
+        // TODO: Delete product
+        console.log(result);
+      });
+  }
 
   private productsData() {
     this.busy$.push(

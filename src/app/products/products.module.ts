@@ -14,6 +14,7 @@ import { NewProductComponent } from './new-product/new-product.component';
 import { ProductComponent } from './product/product.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products/products.component';
+import { ModalDeleteComponent } from './components/modal-delete/modal-delete.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ProductsComponent } from './products/products.component';
     NewProductComponent,
     JoinPipe,
     EditProductComponent,
+    ModalDeleteComponent,
   ],
   imports: [
     CommonModule,
