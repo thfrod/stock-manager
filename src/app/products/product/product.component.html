@@ -5,10 +5,34 @@
     </button>
     <button mat-flat-button class="btn-success"><mat-icon>folder</mat-icon> Exportar relatório</button>
   </div>
-  <p><strong>Nome do produto:</strong> {{ product.value }}</p>
-  <p><strong>Preço de aquisição:</strong> {{ product.acquisitionPrice | currency }}</p>
-  <p><strong>Preço de venda:</strong> {{ product.sellingPrice | currency }}</p>
-  <p><strong>Quantidade em estoque:</strong> {{ product.quantity }}</p>
-  <p><strong>Quantidade vendida:</strong> {{ product.quantitySold }}</p>
-  <p><strong>Departamentos:</strong> {{ product.department | join : 'value' }}</p>
+  <div class="product">
+    <div class="image">
+      <div class="main-image"><img [src]="product.images[imageIndex]" alt="Imagem do produto" /></div>
+
+      <div class="itens">
+        <img
+          [src]="img"
+          [alt]="product.value"
+          *ngFor="let img of product.images; index as index"
+          (mouseenter)="setMainImage(index)"
+          [ngClass]="{ active: imageIndex === index }"
+        />
+      </div>
+    </div>
+
+    <div class="info">
+      <h3>{{ product.value }}</h3>
+      <p><strong>Preço de aquisição:</strong> {{ product.acquisitionPrice | currency }}</p>
+      <p><strong>Preço de venda:</strong> {{ product.sellingPrice | currency }}</p>
+      <p><strong>Quantidade em estoque:</strong> {{ product.quantity }}</p>
+      <p><strong>Quantidade vendida:</strong> {{ product.quantitySold }}</p>
+      <p>
+        <strong>{{ product.department.length > 1 ? 'Departamentos' : 'Departamento' }}:</strong>
+        {{ product.department | join : 'value' }}
+      </p>
+      <hr />
+
+      <p [innerHTML]="product.description"></p>
+    </div>
+  </div>
 </div>

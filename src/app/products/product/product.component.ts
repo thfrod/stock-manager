@@ -15,6 +15,7 @@ export class ProductComponent implements OnInit {
   public busy$: Subscription[] = [];
   public product: ProductModel = this.productService.getEmptyProduct();
   public id: string | null = this.route.snapshot.paramMap.get('id');
+  public imageIndex: number = 0;
 
   constructor(
     private readonly productService: ProductService,
@@ -31,6 +32,10 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.initView();
     this.titleService.setPageTitle(`Produto #${this.id}`);
+  }
+
+  setMainImage(index: number): void {
+    this.imageIndex = index;
   }
 
   private initView() {

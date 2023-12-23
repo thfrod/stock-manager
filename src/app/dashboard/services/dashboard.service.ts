@@ -19,6 +19,7 @@ export class DashboardService {
       quantitySold: 18,
       description: '',
       thumbnail: '/assets/products/1.jpg',
+      images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
       department: [{ id: 1, value: 'Masculino' }],
       active: true,
     };

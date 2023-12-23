@@ -13,12 +13,14 @@ export class ProductService {
     return of([
       {
         id: 1,
-        value: 'Vestido',
+        value: 'Camisa Adidas Manchester United Home 2023',
         acquisitionPrice: 100,
         sellingPrice: 150,
         quantity: 50,
         quantitySold: 20,
         description: 'Descrição do Vestido',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -35,6 +37,8 @@ export class ProductService {
         quantity: 30,
         quantitySold: 10,
         description: 'Descrição da Camiseta',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -51,6 +55,8 @@ export class ProductService {
         quantity: 60,
         quantitySold: 25,
         description: 'Descrição da Calça Jeans',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -67,6 +73,8 @@ export class ProductService {
         quantity: 40,
         quantitySold: 15,
         description: 'Descrição do Tênis',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -83,6 +91,8 @@ export class ProductService {
         quantity: 70,
         quantitySold: 30,
         description: 'Descrição da Saia',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -99,6 +109,8 @@ export class ProductService {
         quantity: 55,
         quantitySold: 22,
         description: 'Descrição da Blusa',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -115,6 +127,8 @@ export class ProductService {
         quantity: 35,
         quantitySold: 12,
         description: 'Descrição da Jaqueta',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -131,6 +145,8 @@ export class ProductService {
         quantity: 65,
         quantitySold: 28,
         description: 'Descrição do Sapato',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -147,6 +163,8 @@ export class ProductService {
         quantity: 75,
         quantitySold: 32,
         description: 'Descrição do Shorts',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -163,6 +181,8 @@ export class ProductService {
         quantity: 25,
         quantitySold: 8,
         description: 'Descrição do Chinelo',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -230,12 +250,14 @@ export class ProductService {
     const products: ProductModel[] = [
       {
         id: 1,
-        value: 'Vestido',
+        value: 'Camisa Adidas Manchester United Home 2023',
         acquisitionPrice: 100,
         sellingPrice: 150,
         quantity: 50,
         quantitySold: 20,
         description: 'Descrição do Vestido',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -252,6 +274,8 @@ export class ProductService {
         quantity: 30,
         quantitySold: 10,
         description: 'Descrição da Camiseta',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -268,6 +292,8 @@ export class ProductService {
         quantity: 60,
         quantitySold: 25,
         description: 'Descrição da Calça Jeans',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -284,6 +310,8 @@ export class ProductService {
         quantity: 40,
         quantitySold: 15,
         description: 'Descrição do Tênis',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -300,6 +328,8 @@ export class ProductService {
         quantity: 70,
         quantitySold: 30,
         description: 'Descrição da Saia',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -316,6 +346,8 @@ export class ProductService {
         quantity: 55,
         quantitySold: 22,
         description: 'Descrição da Blusa',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -332,6 +364,8 @@ export class ProductService {
         quantity: 35,
         quantitySold: 12,
         description: 'Descrição da Jaqueta',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -348,6 +382,8 @@ export class ProductService {
         quantity: 65,
         quantitySold: 28,
         description: 'Descrição do Sapato',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -364,6 +400,8 @@ export class ProductService {
         quantity: 75,
         quantitySold: 32,
         description: 'Descrição do Shorts',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -380,6 +418,8 @@ export class ProductService {
         quantity: 25,
         quantitySold: 8,
         description: 'Descrição do Chinelo',
+        thumbnail: '/assets/products/1.jpg',
+        images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
         department: [
           {
             id: 1,
@@ -403,6 +443,8 @@ export class ProductService {
       quantity: 0,
       quantitySold: 0,
       description: '',
+      thumbnail: '/assets/products/1.jpg',
+      images: ['/assets/products/1.jpg', '/assets/products/2.jpg', '/assets/products/3.jpg'],
       department: [],
       active: true,
     };
