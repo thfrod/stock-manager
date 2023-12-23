@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DepartmentModel, ProductModel } from '@app/@shared/models/products.model';
+import { AlertService } from '@app/@shared/services/alert.service';
 import { ProductService } from '@app/@shared/services/product.service';
 import { TitleService } from '@app/@shared/services/title.service';
-import { Subscription } from 'rxjs';
+import { Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-new-product',
@@ -18,7 +19,8 @@ export class NewProductComponent implements OnInit {
   constructor(
     private readonly productService: ProductService,
     private readonly titleService: TitleService,
-    private readonly route: ActivatedRoute
+    private readonly route: ActivatedRoute,
+    private readonly alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -27,5 +29,18 @@ export class NewProductComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.busy$.forEach((subscription: Subscription) => subscription.unsubscribe());
+  }
+
+  public onSubmit(): void {
+    this.busy$.push(
+      timer(1500).subscribe({
+        next: () => {
+          this.alertService.success('Produto cadastrado com sucesso!');
+        },
+        error: () => {
+          this.alertService.success('Produto cadastrado com sucesso!');
+        },
+      })
+    );
   }
 }

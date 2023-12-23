@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { KeyValuePair } from '@app/@shared/models/keyValuePair.model';
 import { ProductModel } from '@app/@shared/models/products.model';
 import { Subscription } from 'rxjs';
@@ -11,8 +12,12 @@ import { Subscription } from 'rxjs';
 export class FormProductComponent implements OnInit {
   public busy$: Subscription[] = [];
   public departmentsFiltered: KeyValuePair[] = [];
+
+  @ViewChild('f') f: NgForm;
   @Input() product: ProductModel;
   @Input() departments: KeyValuePair[] = [];
+  @Output() submit = new EventEmitter<ProductModel>();
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -23,5 +28,14 @@ export class FormProductComponent implements OnInit {
 
   compareWithFn(item1: KeyValuePair, item2: KeyValuePair) {
     return item1 && item2 ? item1.id === item2.id : item1 === item2;
+  }
+
+  public OnSubmit(): void {
+    if (this.f.valid) {
+      console.log(this.product);
+      this.submit.emit(this.product);
+    } else {
+      this.f.form.markAllAsTouched();
+    }
   }
 }

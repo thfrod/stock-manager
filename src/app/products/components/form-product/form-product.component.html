@@ -1,7 +1,7 @@
 <form #f="ngForm">
   <mat-form-field appearance="outline">
-    <mat-label>Produto</mat-label>
-    <input matInput placeholder="Ex. Vestido" name="product" [(ngModel)]="product.value" type="text" />
+    <mat-label>Nome do produto</mat-label>
+    <input matInput placeholder="Ex. Vestido" name="product" [(ngModel)]="product.value" type="text" required />
   </mat-form-field>
 
   <div class="input-wrapper">
@@ -14,29 +14,19 @@
         currencyMask
         [options]="{ allowNegative: false }"
         type="text"
+        required
       />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Preço de venda</mat-label>
-      <input matInput name="sellingPrice" [(ngModel)]="product.sellingPrice" currencyMask type="text" />
+      <input matInput name="sellingPrice" [(ngModel)]="product.sellingPrice" currencyMask type="text" required />
     </mat-form-field>
   </div>
 
   <mat-form-field appearance="outline">
     <mat-label>Quantidade em estoque</mat-label>
-    <input matInput name="quantity" [(ngModel)]="product.quantity" type="number" />
-  </mat-form-field>
-
-  <!-- TODO: Entender pq o ngx mat file input não trabalha bem com o appearance="outline" -->
-  <mat-form-field appearance="outline">
-    <ngx-mat-file-input
-      placeholder="Foto do produto"
-      name="thumbnail"
-      title="Foto do produto"
-      [(ngModel)]="product.thumbnail"
-    ></ngx-mat-file-input>
-    <mat-icon matSuffix>folder</mat-icon>
+    <input matInput name="quantity" [(ngModel)]="product.quantity" type="number" required />
   </mat-form-field>
 
   <mat-slide-toggle [(ngModel)]="product.active" color="primary" name="active" class="mb-20">
@@ -52,14 +42,15 @@
     class="my-ng-select"
     [compareWith]="compareWithFn"
     [multiple]="true"
+    required
   >
     <ng-option *ngFor="let department of departments" [value]="department">{{ department.value }}</ng-option>
   </ng-select>
 
   <mat-form-field appearance="outline">
     <mat-label>Descrição</mat-label>
-    <textarea rows="10" matInput name="description" [(ngModel)]="product.description" type="text"></textarea>
+    <textarea rows="10" matInput name="description" [(ngModel)]="product.description" type="text" required></textarea>
   </mat-form-field>
 
-  <button mat-flat-button color="primary">Enviar</button>
+  <button mat-flat-button color="primary" (click)="OnSubmit()" [disabled]="f.invalid">Enviar</button>
 </form>
