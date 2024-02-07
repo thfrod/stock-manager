@@ -47,6 +47,9 @@
     <ng-option *ngFor="let department of departments" [value]="department">{{ department.value }}</ng-option>
   </ng-select>
 
+  <!-- Armazenar imagens no IMGUR e salvar o link no banco de dados -->
+  <app-drag-n-drop [multiple]="true"></app-drag-n-drop>
+
   <mat-form-field appearance="outline">
     <mat-label>Descrição</mat-label>
     <textarea rows="10" matInput name="description" [(ngModel)]="product.description" type="text" required></textarea>

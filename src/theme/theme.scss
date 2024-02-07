@@ -111,15 +111,7 @@ body {
   color: $white;
 }
 
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
+@import "./animations";
 @import "./theme-variables";
 @import "./material.scss";
 @import "./components/alerts.scss";

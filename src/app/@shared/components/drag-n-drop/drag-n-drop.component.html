@@ -1,0 +1,27 @@
+<div class="dropzone" appDragNDrop (fileDropped)="onFileDropped($event)">
+  <input
+    type="file"
+    id="fileDropRef"
+    #fileDropRef
+    [multiple]="multiple"
+    (change)="fileBrowseHandler(fileDropRef.files)"
+  />
+  <mat-icon>publish</mat-icon>
+  <p>Arraste e solte os arquivos aqui</p>
+  <p>ou</p>
+  <button mat-flat-button color="primary" (click)="fileDropRef.click()">Selecione os arquivos</button>
+</div>
+
+<div class="files-list">
+  <div class="single-file" *ngFor="let file of files; let i = index">
+    <div class="info">
+      <h4 class="name">
+        {{ file?.name }}
+      </h4>
+      <p class="size">
+        {{ file?.size | filesize }}
+      </p>
+    </div>
+    <mat-icon (click)="deleteFile(i)">delete</mat-icon>
+  </div>
+</div>
